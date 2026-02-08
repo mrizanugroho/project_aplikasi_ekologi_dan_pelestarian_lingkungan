@@ -1,0 +1,233 @@
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materi 1 | Ekosistem</title>
+  <link rel="stylesheet" href="../css/style_materi1.css" />
+  <link rel="stylesheet" href="" />
+  <script defer src="../js/script_materi1.js"></script>
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='tujuan_dan_apersepsi.html'">
+      ⬅ Kembaluy
+    </button>
+
+    <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="tujuan_dan_apersepsi.html" class="nav-item">🎯 Tujuan & Apersepsi</a>
+      <a href="halaman_materi1.html" class="nav-item active">📘 Materi Biotik</a>
+      <a href="halaman_materi1.2.html" class="nav-item">📘 Materi Abiotik</a>
+      <a href="#" class="nav-item locked">🧪 Simulasi 🔒</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 🔒</a>
+      <a href="#" class="nav-item locked">💭 Refleksi 🔒</a>
+      <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+    </nav>
+    <!-- === SIDEBAR PROGRESS === -->
+<div class="sidebar-progress-box">
+  <div class="progress-label">Progress Belajar</div>
+  
+  <div class="sidebar-progress-track">
+    <div class="sidebar-progress-fill" id="progress-fill"></div>
+  </div>
+
+  <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+</div>
+  </aside>
+
+  <body data-page="materi">
+
+  <!-- ===== KONTEN ===== -->
+  <main class="content">
+    <header class="header">
+      <h1>🌱 Pengaruh Lingkungan terhadap Organisme</h1>
+    </header>
+
+<!-- STORY BANNER (ENRICHED) -->
+<section class="story-banner content-box" aria-labelledby="mission-title">
+  <div class="story-top">
+    <div class="story-meta">
+      <div class="avatar" id="user-avatar" aria-hidden="true">👩‍🔬</div>
+      <div>
+        <h3 id="mission-title">🔎 Misi: Peneliti Muda Rawa</h3>
+        <div id="player-line" class="player-line">Peran: <strong id="player-name">Peneliti Muda</strong> • Level: <span id="player-level">1</span></div>
+      </div>
+    </div>
+
+    <div class="story-actions">
+      <button type="button" class="btn-mission">Mulai Misi</button>
+      <button type="button" id="btn-set-name" class="btn-setname">Atur Nama</button>
+    </div>
+  </div>
+
+  <p id="mission-desc">
+    Kamu berperan sebagai <strong id="mission-role">Peneliti Muda</strong> yang ditugaskan menilai kondisi ekosistem rawa di sekitar sekolah. 
+    Misimu: <em>identifikasi komponen biotik dan abiotik</em>, lakukan observasi, lalu buktikan pemahamanmu di simulasi. 
+    Selesaikan misi ini untuk membuka akses materi lanjutan.
+  </p>
+
+  <div class="mission-cta">
+    <span class="mission-tag" id="mission-tag">Misi: Identifikasi Komponen Biotik & Abiotik</span>
+    <div id="mission-log" class="mission-log">Status: Belum dimulai</div>
+  </div>
+
+  <!-- name input popup (hidden by default) -->
+  <div id="name-popup" class="name-popup" aria-hidden="true">
+    <input id="input-player-name" type="text" placeholder="Masukkan namamu (contoh: Siti)" />
+    <button id="save-player-name" class="btn-save-name">Simpan</button>
+    <button id="cancel-player-name" class="btn-cancel-name">Batal</button>
+  </div>
+</section>
+<!-- END STORY BANNER (ENRICHED) -->
+
+
+  <section class="content-box" id="intro-materi">
+    <p>
+      Setiap makhluk hidup (organisme) berinteraksi dengan lingkungannya untuk dapat bertahan hidup. 
+      Lingkungan terdiri dari dua komponen utama, yaitu 
+      <strong>komponen biotik</strong> (makhluk hidup) dan 
+      <strong>komponen abiotik</strong> (benda tak hidup). 
+      Kedua komponen ini saling berhubungan dan membentuk <em>keseimbangan ekosistem</em> 
+      yang membuat kehidupan di bumi dapat berlangsung secara harmonis.
+    </p>
+
+<!-- ===== KOMponen BIOTIK (GANTI BAGIAN LAMA DENGAN INI) ===== -->
+<section class="biotik-section content-box" id="bagian-biotik">
+  <h3>🌿 Komponen Biotik</h3>
+
+  <p class="lead">
+    Komponen biotik adalah semua makhluk hidup yang terdapat di dalam suatu ekosistem.
+    Mereka berperan dalam menjaga aliran energi dan materi. Berikut beberapa peran dan contoh:
+  </p>
+
+  <div class="biotik-grid">
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/pohon.jpg" alt="Produsen - tumbuhan hijau" />
+      </div>
+      <div class="biotik-body">
+        <h4>🌱 Produsen</h4>
+        <p class="muted">
+          Organisme autotrof (mis. tumbuhan hijau) yang membuat makanan sendiri lewat
+          fotosintesis — sumber energi utama di banyak ekosistem.
+        </p>
+        <p class="example">Contoh: rumput, padi, pohon mangga, ganggang.</p>
+      </div>
+    </article>
+
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/konsumen1.jpg" alt="Konsumen - Panda" />
+      </div>
+      <div class="biotik-body">
+        <h4>🦌 Konsumen</h4>
+        <p class="muted">
+          Hewan heterotrof yang memperoleh energi dari organisme lain.
+          Berdasarkan tingkatnya: herbivora, karnivora, omnivora.
+        </p>
+        <p class="example">Contoh: sapi (herbivora), ular (karnivora), ayam (omnivora).</p>
+      </div>
+    </article>
+
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/konsumen.jpg" alt="Pemangsa dan Interaksi - harimau" />
+      </div>
+      <div class="biotik-body">
+        <h4>🦊 Pemangsa & Interaksi</h4>
+        <p class="muted">
+          Peran predator, kompetisi, dan interaksi lainnya membentuk rantai makanan
+          dan mengendalikan populasi.
+        </p>
+        <p class="example">Contoh interaksi: predator–mangsa, kompetisi, simbiosis.</p>
+      </div>
+    </article>
+
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/dekomposer.jpg" alt="Dekomposer - Bakteri" />
+      </div>
+      <div class="biotik-body">
+        <h4>🧫 Dekomposer</h4>
+        <p class="muted">
+          Mikroorganisme yang menguraikan sisa organik menjadi unsur hara sehingga
+          siklus materi kembali ke lingkungan.
+        </p>
+        <p class="example">Contoh: bakteri pengurai, jamur tanah.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+    <p>
+      Komponen biotik juga berinteraksi satu sama lain dalam berbagai bentuk, seperti:
+    </p>
+
+<!-- ====== INTERAKSI ANTAR KOMPONEN BIOTIK ====== -->
+<h3 class="judul-interaksi">🦁 Interaksi Antar Komponen Biotik</h3>
+
+<div class="interaksi-card">
+    <div class="interaksi-gif">
+        <img src="../img/cheetah_running.gif" alt="Predasi">
+    </div>
+    <div class="interaksi-text">
+        <h4>🐅 Predasi</h4>
+        <p>
+            Predasi adalah interaksi antara pemangsa (<strong>predator</strong>) dan mangsa.
+            Predator menangkap dan memakan organisme lain untuk mendapatkan energi dan nutrisi.
+            Interaksi ini sangat penting untuk menjaga keseimbangan populasi di alam.
+        </p>
+        <p>
+            <strong>Contoh:</strong> <em>cheetah mengejar kijang</em>, <em>harimau memangsa rusa</em>,
+            atau <em>elang berburu tikus</em>.
+        </p>
+    </div>
+</div>
+
+<div class="interaksi-card">
+    <div class="interaksi-gif">
+        <img src="../img/symbiosis.gif" alt="Simbiosis">
+    </div>
+    <div class="interaksi-text">
+        <h4>🤝 Simbiosis</h4>
+        <p>
+          Simbiosis adalah interaksi jangka panjang antara dua organisme berbeda spesies yang hidup berdampingan. Dalam hubungan ini, ada yang saling menguntungkan, ada yang hanya satu pihak yang untung, bahkan ada yang merugikan salah satu pihak.
+          Simbiosis membantu makhluk hidup bertahan, mendapatkan makanan, atau perlindungan, sehingga menjadi bagian penting dalam keseimbangan ekosistem.
+        </p>
+        <p>
+          <strong>Contoh:</strong> <em>Kutu Daun (Semut mendapat embun madu, Kutu Daun mendapat perlindungan)</em>.
+        </p>
+    </div>
+</div>
+
+<div class="interaksi-card">
+    <div class="interaksi-gif">
+        <img src="../img/competition.gif" alt="Kompetisi">
+    </div>
+    <div class="interaksi-text">
+        <h4>⚔️ Kompetisi</h4>
+        <p>
+          Kompetisi adalah interaksi ketika dua atau lebih organisme memperebutkan sumber daya yang terbatas, seperti makanan, tempat tinggal, cahaya, air, atau pasangan.
+          Dalam buku dijelaskan bahwa kompetisi terjadi jika kebutuhan organisme sama, tetapi jumlah sumber dayanya sedikit. Hal ini membantu menjaga keseimbangan populasi dan menyeleksi organisme yang paling mampu beradaptasi.
+        </p>
+        <p>
+          <strong>Contoh:</strong> <em>Singa jantan saling berkompetisi untuk mendapatkan wilayah kekuasaan dan pasangan.
+          Singa yang menang akan memimpin kelompok dan menguasai sumber daya, sedangkan yang kalah harus pergi dan mencari daerah baru.</em>.
+        </p>
+    </div>
+</div>
+
+<!-- ===== NAVIGASI PSEUDO-HALAMAN ===== -->
+<div class="done-section">
+<a href="halaman_materi1.2.html"
+   class="btn-selesai"
+   onclick="window.location.href=this.href">
+  ➡️ Lanjut ke Materi Abiotik
+</a>
+</div>
+
+</body>
+</html>

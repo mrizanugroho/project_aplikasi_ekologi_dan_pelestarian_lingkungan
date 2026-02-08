@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuis 2 - Drag & Drop Ekosistem (Merged Sidebar & Progress)</title>
+  <link rel="stylesheet" href="../css/style_kuis2.css" />
+  <script defer src="../js/aktivitas.js"></script>
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='halaman_kuis1.html'">
+      ⬅ Kembali
+    </button>
+
+    <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="tujuan_dan_apersepsi.html" class="nav-item">🎯 Tujuan & Apersepsi</a>
+      <a href="halaman_materi1.html" class="nav-item">📘 Materi Biotik</a>
+      <a href="halaman_materi1.2.html" class="nav-item">📘 Materi Abiotik</a>
+      <a href="halaman_simulasi_hutan.html" class="nav-item">🧪 Simulasi</a>
+      <a href="kuis_materi1.html" class="nav-item active">🧩 Kuis</a>
+      <a href="#" class="nav-item locked">💭 Refleksi 🔒</a>
+      <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+    </nav>
+
+    <!-- Sidebar progress (dari Simulasi / Kuis1) -->
+    <div class="sidebar-progress-box">
+      <div class="progress-label">Progress Belajar</div>
+      <div class="sidebar-progress-track">
+        <div class="sidebar-progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+    </div>
+  </aside>
+
+  <!-- ===== KONTEN ===== -->
+  <main class="content">
+    <header class="header sticky">
+      <h1>🧩 Kuis 2 – Identifikasi Komponen Ekosistem</h1>
+    </header>
+
+    <section class="content-box">
+      <p class="intro">
+        Seret emoji di bawah ini ke kolom yang sesuai! 🌿 Komponen biotik adalah makhluk hidup, sedangkan 💧 abiotik adalah benda tak hidup.
+      </p>
+
+      <!-- Area drag -->
+      <div class="drag-area" id="dragArea">
+        <div class="draggable" draggable="true" data-type="biotik">🐟 Ikan</div>
+        <div class="draggable" draggable="true" data-type="abiotik">☀️ Matahari</div>
+        <div class="draggable" draggable="true" data-type="biotik">🌳 Pohon</div>
+        <div class="draggable" draggable="true" data-type="abiotik">💧 Air</div>
+        <div class="draggable" draggable="true" data-type="biotik">🦋 Kupu-kupu</div>
+        <div class="draggable" draggable="true" data-type="abiotik">🪨 Batu</div>
+        <div class="draggable" draggable="true" data-type="biotik">🍄 Jamur</div>
+        <div class="draggable" draggable="true" data-type="abiotik">🌬️ Udara</div>
+        <div class="draggable" draggable="true" data-type="biotik">🌾 Rumput</div>
+        <div class="draggable" draggable="true" data-type="abiotik">🌡️ Suhu</div>
+      </div>
+
+      <!-- Zona drop -->
+      <div class="drop-zone-container">
+        <div class="drop-zone" id="bioticZone">
+          <h3>🌱 Biotik</h3>
+        </div>
+        <div class="drop-zone" id="abioticZone">
+          <h3>💧 Abiotik</h3>
+        </div>
+      </div>
+
+      <div class="done-section">
+        <button id="checkAnswer" class="btn-selesai" disabled>✅ Periksa Jawaban</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== POPUP HASIL ===== -->
+  <div id="popupResult" class="popup-selesai">
+    <div class="popup-card">
+      <h2>🎉 Hasil Kuis</h2>
+      <p id="scoreText">Skor kamu: 0%</p>
+      <div id="feedbackContainer" class="scroll-feedback"></div>
+<!-- ganti area tombol di popup (popup-card) dengan blok ini -->
+<div class="popup-actions" role="group" aria-label="Tindakan hasil kuis">
+  <button id="retryBtn" type="button" aria-label="Coba lagi">
+    <span class="btn-ico">🔁</span>
+    <span>Coba Lagi</span>
+  </button>
+
+  <button id="nextPage" type="button" aria-label="Lanjut ke Refleksi">
+    <span class="btn-ico">💭</span>
+    <span>Lanjut ke Refleksi</span>
+  </button>
+</div>
+    </div>
+  </div>
+</body>
+</html>

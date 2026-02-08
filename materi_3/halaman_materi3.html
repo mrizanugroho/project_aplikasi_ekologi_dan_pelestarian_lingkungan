@@ -1,0 +1,277 @@
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materi 1 | Ekosistem</title>
+  <link rel="stylesheet" href="css/style_materi1.css" />
+  <script defer src="js/script_materi1.js"></script>
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='halaman_materi.html'">
+      ⬅ Kembali
+    </button>
+
+    <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="halaman_materi1.html" class="nav-item active">📘 Materi</a>
+      <a href="#" class="nav-item locked">🧪 Simulasi 🔒</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 1 🔒</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 2🔒</a>
+      <a href="#" class="nav-item locked">💭 Refleksi 🔒</a>
+      <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+    </nav>
+    <!-- === SIDEBAR PROGRESS === -->
+<div class="sidebar-progress-box">
+  <div class="progress-label">Progress Belajar</div>
+  
+  <div class="sidebar-progress-track">
+    <div class="sidebar-progress-fill" id="progress-fill"></div>
+  </div>
+
+  <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+</div>
+  </aside>
+
+  <!-- ===== KONTEN ===== -->
+<main class="content">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <h1>🌍 Pengaruh Manusia terhadap Ekosistem</h1>
+  </header>
+
+  <!-- ===== STORY BANNER ===== -->
+  <section class="story-banner content-box">
+    <div class="story-top">
+      <div class="story-meta">
+        <div class="avatar">🧑‍🌾</div>
+        <div>
+          <h3>🔎 Misi: Peneliti Dampak Manusia</h3>
+          <div class="player-line">
+            Peran: <strong>Peneliti Muda</strong> • Level: 1
+          </div>
+        </div>
+      </div>
+
+      <div class="story-actions">
+        <button class="btn-mission">Mulai Misi</button>
+      </div>
+    </div>
+
+    <p>
+      Kali ini kamu bertugas mengamati bagaimana <strong>aktivitas manusia</strong>
+      dapat memengaruhi ekosistem.  
+      Apakah selalu berdampak buruk? Atau justru bisa membawa kebaikan?
+    </p>
+
+    <div class="mission-cta">
+      <span class="mission-tag">
+        🎯 Misi: Analisis Pengaruh Manusia
+      </span>
+      <div class="mission-log">
+        Status: Belum dimulai
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PENDAHULUAN ===== -->
+  <section class="content-box">
+    <p class="lead">
+      Manusia adalah makhluk hidup yang sangat dominan di Bumi.
+      Hampir semua kegiatan manusia dapat memengaruhi lingkungan di sekitarnya.
+    </p>
+
+    <p>
+      Pengaruh manusia terhadap ekosistem bisa bersifat
+      <strong>positif</strong> maupun <strong>negatif</strong>.
+      Oleh karena itu, manusia memiliki peran penting dalam menjaga
+      keseimbangan ekosistem.
+    </p>
+  </section>
+
+  <!-- ===== PERTANIAN ===== -->
+  <section class="biotik-section content-box">
+    <h3>🌾 Pertanian dan Produksi Pangan</h3>
+
+    <div class="biotik-grid">
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/farm.png" alt="Pertanian">
+        </div>
+        <div class="biotik-body">
+          <h4>🚜 Dampak Pertanian</h4>
+          <p class="muted">
+            Pertanian membantu manusia memenuhi kebutuhan pangan,
+            tetapi penggunaan pupuk dan pestisida berlebihan
+            dapat merusak lingkungan.
+          </p>
+          <p class="example">
+            Dampak negatif: pencemaran air, tanah menjadi kurang subur.
+          </p>
+        </div>
+      </article>
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/plant.png" alt="Monokultur">
+        </div>
+        <div class="biotik-body">
+          <h4>🌱 Pertanian Monokultur</h4>
+          <p class="muted">
+            Pertanian monokultur hanya menanam satu jenis tanaman
+            dalam satu area sehingga mengurangi keanekaragaman hayati.
+          </p>
+          <p class="example">
+            Contoh: sawah atau perkebunan satu jenis tanaman.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== KERUSAKAN HABITAT ===== -->
+  <section class="biotik-section content-box">
+    <h3>🌳 Kerusakan Habitat</h3>
+
+    <div class="biotik-grid">
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/forest.png" alt="Hutan">
+        </div>
+        <div class="biotik-body">
+          <h4>🪓 Penebangan Hutan</h4>
+          <p class="muted">
+            Penebangan hutan untuk perkebunan, pertambangan,
+            dan pemukiman menyebabkan banyak hewan kehilangan habitat.
+          </p>
+          <p class="example">
+            Dampak: hewan terancam punah.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== POLUSI ===== -->
+  <section class="biotik-section content-box">
+    <h3>🏭 Polusi Lingkungan</h3>
+
+    <div class="biotik-grid">
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/pollution.png" alt="Polusi">
+        </div>
+        <div class="biotik-body">
+          <h4>🗑️ Pencemaran</h4>
+          <p class="muted">
+            Polusi terjadi ketika zat berbahaya masuk ke lingkungan,
+            seperti asap kendaraan dan limbah pabrik.
+          </p>
+          <p class="example">
+            Contoh: sungai tercemar, udara kotor.
+          </p>
+        </div>
+      </article>
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/global_warming.png" alt="Pemanasan Global">
+        </div>
+        <div class="biotik-body">
+          <h4>🔥 Dampak Polusi</h4>
+          <p class="muted">
+            Polusi dapat menyebabkan hujan asam dan pemanasan global
+            yang berdampak buruk bagi kehidupan di Bumi.
+          </p>
+          <p class="example">
+            Dampak: suhu bumi meningkat, gagal panen.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== PERUBAHAN IKLIM ===== -->
+  <section class="content-box">
+    <h3>🌡️ Perubahan Iklim</h3>
+    <p>
+      Perubahan iklim adalah perubahan cuaca dalam jangka panjang
+      yang disebabkan oleh aktivitas manusia seperti pembakaran
+      bahan bakar fosil dan penebangan hutan.
+    </p>
+    <p>
+      Dampaknya antara lain cuaca ekstrem, es di kutub mencair,
+      dan naiknya permukaan air laut.
+    </p>
+  </section>
+
+  <!-- ===== KONSERVASI ===== -->
+  <section class="biotik-section content-box">
+    <h3>♻️ Konservasi Lingkungan</h3>
+
+    <div class="biotik-grid">
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/recycle.png" alt="Konservasi">
+        </div>
+        <div class="biotik-body">
+          <h4>🌱 Upaya Konservasi</h4>
+          <p class="muted">
+            Konservasi bertujuan melindungi makhluk hidup dan lingkungannya
+            agar tidak punah.
+          </p>
+          <p class="example">
+            Contoh: daur ulang, penghijauan, energi alternatif.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== KESIMPULAN ===== -->
+  <section class="content-box">
+    <h3>🎯 Kesimpulan</h3>
+    <p>
+      Aktivitas manusia sangat memengaruhi ekosistem.
+      Oleh karena itu, manusia harus bertindak bijak
+      agar lingkungan tetap lestari.
+    </p>
+    <p>
+      Sebagai <strong>Peneliti Muda</strong>,
+      kamu memiliki peran penting menjaga Bumi 🌍
+    </p>
+  </section>
+
+</main>
+
+
+
+<!-- ===== Mini-quest Completed Modal (paste before </body>) ===== -->
+<div id="mq-complete-overlay" class="mq-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="mq-complete-title">
+  <div class="mq-modal">
+    <div class="mq-emoji">🎉</div>
+    <h2 id="mq-complete-title">Hebat!</h2>
+    <p id="mq-complete-text">Kamu telah menyelesaikan misi ini. Yuk lanjut ke simulasi untuk melihat penerapannya!</p>
+    <p id="mq-complete-points" class="mq-points" style="display:none;">+10 poin untuk menyelesaikan misi!</p>
+    <div class="mq-actions">
+      <button id="mq-close-btn" class="btn">Tutup</button>
+      <button id="mq-go-sim-btn" class="btn primary">➡️ Lanjut ke Simulasi</button>
+    </div>
+  </div>
+</div>
+<!-- ===== end modal ===== -->
+
+</body>
+</html>

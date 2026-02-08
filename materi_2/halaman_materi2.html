@@ -1,0 +1,298 @@
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materi 1 | Ekosistem</title>
+  <link rel="stylesheet" href="css/style_materi1.css" />
+  <script defer src="js/script_materi1.js"></script>
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='halaman_materi.html'">
+      ⬅ Kembali
+    </button>
+
+    <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="halaman_materi1.html" class="nav-item active">📘 Materi</a>
+      <a href="#" class="nav-item locked">🧪 Simulasi 🔒</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 1 🔒</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 2🔒</a>
+      <a href="#" class="nav-item locked">💭 Refleksi 🔒</a>
+      <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+    </nav>
+    <!-- === SIDEBAR PROGRESS === -->
+<div class="sidebar-progress-box">
+  <div class="progress-label">Progress Belajar</div>
+  
+  <div class="sidebar-progress-track">
+    <div class="sidebar-progress-fill" id="progress-fill"></div>
+  </div>
+
+  <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+</div>
+  </aside>
+
+  <!-- ===== KONTEN ===== -->
+<main class="content">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <h1>🌱 Ekosistem dan Interaksinya</h1>
+  </header>
+
+  <!-- ===== STORY BANNER ===== -->
+  <section class="story-banner content-box">
+    <div class="story-top">
+      <div class="story-meta">
+        <div class="avatar">🧑‍🔬</div>
+        <div>
+          <h3>🔎 Misi: Peneliti Muda Ekosistem</h3>
+          <div class="player-line">
+            Peran: <strong>Peneliti Muda</strong> • Level: 1
+          </div>
+        </div>
+      </div>
+
+      <div class="story-actions">
+        <button class="btn-mission">Mulai Misi</button>
+      </div>
+    </div>
+
+    <p>
+      Kamu berperan sebagai <strong>Peneliti Muda</strong> yang sedang mengamati
+      ekosistem rawa di sekitar sekolah.  
+      Tugasmu adalah mengenali <em>komponen biotik dan abiotik</em>,
+      serta memahami bagaimana makhluk hidup saling berinteraksi.
+    </p>
+
+    <div class="mission-cta">
+      <span class="mission-tag">
+        🎯 Misi: Kenali Ekosistem
+      </span>
+      <div class="mission-log">
+        Status: Belum dimulai
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PENDAHULUAN ===== -->
+  <section class="content-box">
+    <p class="lead">
+      Setiap makhluk hidup tidak bisa hidup sendiri.
+      Makhluk hidup selalu berhubungan dengan lingkungan di sekitarnya
+      untuk mencari makanan, tempat tinggal, dan perlindungan.
+    </p>
+
+    <p>
+      Lingkungan tempat makhluk hidup saling berinteraksi disebut
+      <strong>ekosistem</strong>.  
+      Ekosistem tersusun atas dua bagian utama, yaitu
+      <strong>komponen biotik</strong> (makhluk hidup) dan
+      <strong>komponen abiotik</strong> (benda tak hidup).
+    </p>
+  </section>
+
+  <!-- ===== KOMONEN BIOTIK ===== -->
+  <section class="biotik-section content-box" id="bagian-biotik">
+    <h3>🌿 Komponen Biotik</h3>
+
+    <p class="lead">
+      Komponen biotik adalah semua makhluk hidup yang ada di dalam ekosistem.
+      Setiap makhluk hidup memiliki peran penting dalam menjaga keseimbangan alam.
+    </p>
+
+    <div class="biotik-grid">
+
+      <!-- PRODUSEN -->
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/plant.png" alt="Produsen">
+        </div>
+        <div class="biotik-body">
+          <h4>🌱 Produsen</h4>
+          <p class="muted">
+            Produsen adalah makhluk hidup yang dapat membuat makanannya sendiri
+            dengan bantuan cahaya matahari melalui fotosintesis.
+          </p>
+          <p class="example">
+            Contoh: rumput, padi, pohon, ganggang.
+          </p>
+        </div>
+      </article>
+
+      <!-- KONSUMEN -->
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/fish.png" alt="Konsumen">
+        </div>
+        <div class="biotik-body">
+          <h4>🦌 Konsumen</h4>
+          <p class="muted">
+            Konsumen adalah makhluk hidup yang tidak bisa membuat makanan sendiri,
+            sehingga harus memakan makhluk hidup lain.
+          </p>
+          <p class="example">
+            Contoh: belalang, katak, ular, elang.
+          </p>
+        </div>
+      </article>
+
+      <!-- DEKOMPOSER -->
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/decomposer.png" alt="Dekomposer">
+        </div>
+        <div class="biotik-body">
+          <h4>🧫 Dekomposer</h4>
+          <p class="muted">
+            Dekomposer berfungsi menguraikan sisa makhluk hidup yang telah mati
+            agar zat hara kembali ke lingkungan.
+          </p>
+          <p class="example">
+            Contoh: bakteri dan jamur.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== INTERAKSI BIOTIK ===== -->
+  <h3 class="judul-interaksi">🦁 Interaksi Antar Makhluk Hidup</h3>
+
+  <div class="interaksi-card">
+    <div class="interaksi-gif">
+      <img src="img/cheetah_running.gif" alt="Predasi">
+    </div>
+    <div class="interaksi-text">
+      <h4>🐅 Predasi</h4>
+      <p>
+        Predasi adalah hubungan antara pemangsa dan mangsa.
+        Pemangsa mendapatkan makanan, sedangkan mangsa menjadi sumber energi.
+      </p>
+      <p>
+        <strong>Contoh:</strong> elang memangsa tikus.
+      </p>
+    </div>
+  </div>
+
+  <div class="interaksi-card">
+    <div class="interaksi-gif">
+      <img src="img/symbiosis.gif" alt="Simbiosis">
+    </div>
+    <div class="interaksi-text">
+      <h4>🤝 Simbiosis</h4>
+      <p>
+        Simbiosis adalah hubungan antara dua makhluk hidup yang hidup bersama.
+        Hubungan ini bisa saling menguntungkan atau hanya menguntungkan salah satu.
+      </p>
+      <p>
+        <strong>Contoh:</strong> lebah dan bunga.
+      </p>
+    </div>
+  </div>
+
+  <div class="interaksi-card">
+    <div class="interaksi-gif">
+      <img src="img/competition.gif" alt="Kompetisi">
+    </div>
+    <div class="interaksi-text">
+      <h4>⚔️ Kompetisi</h4>
+      <p>
+        Kompetisi adalah persaingan untuk mendapatkan makanan,
+        tempat tinggal, atau pasangan.
+      </p>
+      <p>
+        <strong>Contoh:</strong> dua singa jantan berebut wilayah.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== KOMPONEN ABIOTIK ===== -->
+  <section class="biotik-section content-box" id="bagian-abiotik">
+    <h3>💧 Komponen Abiotik</h3>
+
+    <p class="lead">
+      Komponen abiotik adalah benda tak hidup yang sangat memengaruhi
+      kehidupan makhluk hidup dalam ekosistem.
+    </p>
+
+    <div class="biotik-grid">
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/sunny.png" alt="Cahaya Matahari">
+        </div>
+        <div class="biotik-body">
+          <h4>☀️ Cahaya Matahari</h4>
+          <p class="muted">
+            Sumber energi utama bagi tumbuhan untuk membuat makanan.
+          </p>
+        </div>
+      </article>
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/water.png" alt="Air">
+        </div>
+        <div class="biotik-body">
+          <h4>💧 Air</h4>
+          <p class="muted">
+            Dibutuhkan semua makhluk hidup untuk bertahan hidup.
+          </p>
+        </div>
+      </article>
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/temperature.png" alt="Suhu">
+        </div>
+        <div class="biotik-body">
+          <h4>🌡️ Suhu</h4>
+          <p class="muted">
+            Menentukan jenis makhluk hidup yang bisa hidup di suatu tempat.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== KESIMPULAN ===== -->
+  <section class="content-box">
+    <h3>🎯 Kesimpulan</h3>
+    <p>
+      Ekosistem terbentuk karena adanya hubungan antara makhluk hidup
+      dan lingkungannya. Jika salah satu bagian terganggu,
+      keseimbangan ekosistem juga bisa terganggu.
+    </p>
+    <p>
+      Sekarang kamu sudah siap melanjutkan ke tahap berikutnya
+      sebagai <strong>Peneliti Muda</strong> 🌱
+    </p>
+  </section>
+
+</main>
+
+
+<!-- ===== Mini-quest Completed Modal (paste before </body>) ===== -->
+<div id="mq-complete-overlay" class="mq-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="mq-complete-title">
+  <div class="mq-modal">
+    <div class="mq-emoji">🎉</div>
+    <h2 id="mq-complete-title">Hebat!</h2>
+    <p id="mq-complete-text">Kamu telah menyelesaikan misi ini. Yuk lanjut ke simulasi untuk melihat penerapannya!</p>
+    <p id="mq-complete-points" class="mq-points" style="display:none;">+10 poin untuk menyelesaikan misi!</p>
+    <div class="mq-actions">
+      <button id="mq-close-btn" class="btn">Tutup</button>
+      <button id="mq-go-sim-btn" class="btn primary">➡️ Lanjut ke Simulasi</button>
+    </div>
+  </div>
+</div>
+<!-- ===== end modal ===== -->
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulasi Ekosistem Hutan</title>
+  <link rel="stylesheet" href="../css/style_simulasi_hutan.css" />
+  <script defer src="../js/simulasi_hutan.js"></script>
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='halaman_materi1.2.html'">
+      ⬅ Kembali
+    </button>
+
+    <h2>🌿 <br> <span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="tujuan_dan_apersepsi.html" class="nav-item">🎯 Tujuan & Apersepsi</a>
+      <a href="halaman_materi1.html" class="nav-item">📘 Materi Biotik</a>
+      <a href="halaman_materi1.2.html" class="nav-item">📘 Materi Abiotik</a>
+      <a href="halaman_simulasi_hutan.html" class="nav-item active">🧪 Simulasi</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 🔒</a>
+      <a href="#" class="nav-item locked">💭 Refleksi 🔒</a>
+      <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+    </nav>
+
+    <!-- SIDEBAR PROGRESS (Simulasi page) -->
+<div class="sidebar-progress-box">
+  <div class="progress-label">Progress Belajar</div>
+
+  <div class="sidebar-progress-track">
+    <div class="sidebar-progress-fill" id="progress-fill"></div>
+  </div>
+
+  <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+</div>
+<!-- END SIDEBAR PROGRESS -->
+  </aside>
+
+  <!-- ===== KONTEN UTAMA ===== -->
+  <main class="content">
+    <header class="header">
+      <h1>🌲 Simulasi Ekosistem Hutan</h1>
+    </header>
+
+    <section class="card">
+      <p>
+        Klik ikon untuk mengaktifkan atau menonaktifkan komponen dan lihat keseimbangan ekosistem.
+      </p>
+      
+
+      <div id="forestIcons" class="forest-icons">
+        <span class="icon faded" data-kind="sun">☀️</span>
+        <span class="icon faded" data-kind="tree">🌳</span>
+        <span class="icon faded" data-kind="grass">🌾</span>
+        <span class="icon faded" data-kind="deer">🦌</span>
+        <span class="icon faded" data-kind="tiger">🐅</span>
+      </div>
+
+      <p id="forestStatus" class="forest-status">🌿 Ekosistem seimbang.</p>
+
+<div class="btn-row" style="margin-top:12px;">
+  <button id="btnResetForest" class="btn danger">🔄 Reset Ikon</button>
+  <button id="exp-complete" class="btn next">✅ Selesaikan Simulasi</button>
+  <button id="btnQuiz" class="btn next">➡️ Lanjut ke Kuis</button>
+</div>
+    </section>
+  </main>
+
+  <!-- ===== Mini-quest Completed Modal (visual only) ===== -->
+<div id="mq-complete-overlay" class="mq-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="mq-complete-title">
+  <div class="mq-modal">
+    <div class="mq-emoji">🎉</div>
+    <h2 id="mq-complete-title">Hebat!</h2>
+    <p id="mq-complete-text">Kamu telah menyelesaikan materi ini.</p>
+    <p id="mq-complete-points" class="mq-points">+10 poin (hanya tampilan)</p>
+    <div class="mq-actions">
+      <button id="mq-close-btn" class="btn">Tutup</button>
+      <button id="mq-go-kuis1-btn" class="btn primary">➡️ Lanjut ke Kuis</button>
+    </div>
+  </div>
+</div>
+<!-- ===== end modal ===== -->
+
+</body>
+</html>

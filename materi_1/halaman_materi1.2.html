@@ -1,0 +1,171 @@
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materi 1 | Ekosistem</title>
+  <link rel="stylesheet" href="../css/style_materi1.css" />
+  <script defer src="../js/script_materi1.js"></script>
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='halaman_materi.html'">
+      ⬅ Kembali
+    </button>
+
+    <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="tujuan_dan_apersepsi.html" class="nav-item">🎯 Tujuan & Apersepsi</a>
+      <a href="halaman_materi1.html" class="nav-item">📘 Materi Biotik</a>
+      <a href="halaman_materi1.2.html" class="nav-item active">📘 Materi Abiotik</a>
+      <a href="#" class="nav-item locked">🧪 Simulasi 🔒</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 🔒</a>
+      <a href="#" class="nav-item locked">💭 Refleksi 🔒</a>
+      <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+    </nav>
+    <!-- === SIDEBAR PROGRESS === -->
+<div class="sidebar-progress-box">
+  <div class="progress-label">Progress Belajar</div>
+  
+  <div class="sidebar-progress-track">
+    <div class="sidebar-progress-fill" id="progress-fill"></div>
+  </div>
+
+  <div class="sidebar-progress-percent" id="progress-percent">15%</div>
+</div>
+  </aside>
+
+  <body data-page="materi-abiotik">
+
+  <!-- ===== KONTEN ===== -->
+  <main class="content">
+    <header class="header">
+      <h1>🌱 Pengaruh Lingkungan terhadap Organisme</h1>
+    </header>
+
+<!-- ===== KOMponen BIOTIK (GANTI BAGIAN LAMA DENGAN INI) ===== -->
+<section class="biotik-section content-box" id="bagian-abiotik">
+  <h3>💧 Komponen Abiotik</h3>
+
+  <p class="lead">
+    Komponen abiotik adalah segala sesuatu yang <em>tidak hidup</em> namun memengaruhi kehidupan organisme di dalam ekosistem.  
+    Tanpa komponen abiotik, organisme tidak dapat hidup dengan baik. Berikut beberapa contoh faktor abiotik:
+  </p>
+
+  <div class="biotik-grid">
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/matahari.jpg" alt="Matahari" />
+      </div>
+      <div class="biotik-body">
+        <h4>☀️ Cahaya Matahari</h4>
+        <p class="muted">
+        Merupakan sumber energi utama bagi kehidupan. 
+        Cahaya diperlukan oleh tumbuhan untuk melakukan fotosintesis dan menentukan pola aktivitas hewan (siang dan malam).
+        </p>
+      </div>
+    </article>
+
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/air.jpg" alt="Air" />
+      </div>
+      <div class="biotik-body">
+        <h4>💧 Air</h4>
+        <p class="muted">
+          Unsur penting bagi semua makhluk hidup. 
+          Air dibutuhkan dalam proses metabolisme tubuh, fotosintesis, dan juga menjadi habitat bagi organisme air seperti ikan, udang, serta plankton.
+        </p>
+      </div>
+    </article>
+
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/udara.jpg" alt="udara" />
+      </div>
+      <div class="biotik-body">
+        <h4>🌬️ Udara</h4>
+        <p class="muted">
+          Mengandung gas-gas penting seperti oksigen (O₂) untuk pernapasan, karbon dioksida (CO₂) untuk fotosintesis, dan nitrogen (N₂) untuk kesuburan tanah.
+        </p>
+      </div>
+    </article>
+
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/suhu.jpg" alt="Suhu" />
+      </div>
+      <div class="biotik-body">
+        <h4>🌡️ Suhu</h4>
+        <p class="muted">
+        Menentukan jenis organisme yang dapat hidup di suatu wilayah. 
+        Unta, misalnya, mampu bertahan di gurun panas, sedangkan beruang kutub beradaptasi di daerah dingin.
+        </p>
+      </div>
+    </article>
+    
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/tanah.jpg" alt="Tanah" />
+      </div>
+      <div class="biotik-body">
+        <h4>🌾 Tanah</h4>
+        <p class="muted">
+          Tempat tumbuh tumbuhan dan habitat bagi banyak organisme. 
+          Struktur dan kandungan unsur hara tanah sangat memengaruhi jenis tumbuhan yang dapat hidup di suatu tempat.
+        </p>
+      </div>
+    </article>
+
+    <article class="biotik-item">
+      <div class="biotik-icon photo">
+        <img src="../img/mineral.jpg" alt="Mineral" />
+      </div>
+      <div class="biotik-body">
+        <h4>🪨 Mineral</h4>
+        <p class="muted">
+          Unsur anorganik seperti fosfor, kalsium, dan kalium dibutuhkan dalam pembentukan tulang, sel, dan proses metabolisme tubuh.
+        </p>
+      </div>
+    </article>
+  </div>
+
+
+<!-- ===== NAVIGASI AKHIR MATERI ABIOTIK ===== -->
+<div class="done-section done-section-dual">
+
+  <!-- Kembali ke Biotik -->
+<a href="halaman_materi1.html"
+   class="btn-selesai btn-outline"
+   role="button"
+   onclick="event.stopImmediatePropagation(); window.location.href=this.href;">
+  ⬅️ Kembali ke Materi Biotik
+</a>
+
+  <!-- Selesaikan Materi -->
+  <button
+    class="btn-selesai btn-finish"
+    id="btn-selesaikan-materi">
+    ✅ Selesaikan Materi
+  </button>
+</div>
+</section>
+
+
+<div id="mq-complete-overlay" class="mq-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="mq-complete-title">
+  <div class="mq-modal">
+    <div class="mq-emoji">🎉</div>
+    <h2 id="mq-complete-title">Hebat!</h2>
+    <p id="mq-complete-text">Kamu telah menyelesaikan misi ini. Yuk lanjut ke simulasi untuk melihat penerapannya!</p>
+    <p id="mq-complete-points" class="mq-points" style="display:none;">+10 poin untuk menyelesaikan misi!</p>
+    <div class="mq-actions">
+      <button id="mq-close-btn" class="btn">Tutup</button>
+      <button id="mq-go-sim-btn" class="btn primary">➡️ Lanjut ke Simulasi</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuis 1 - Ekosistem (CBT)</title>
+
+  <!-- CSS utama -->
+  <link rel="stylesheet" href="../css/style_kuis.css" />
+
+  <!-- JS utama -->
+  <script defer src="../js/quiz1.js"></script>
+</head>
+<body>
+
+<!-- ===== SIDEBAR (TETAP) ===== -->
+<aside class="sidebar">
+  <button class="btn-back" onclick="window.location.href='halaman_simulasi_hutan.html'">
+    ⬅ Kembali
+  </button>
+
+  <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+  <nav class="nav-menu">
+    <a href="tujuan_dan_apersepsi.html" class="nav-item">🎯 Tujuan & Apersepsi</a>
+    <a href="halaman_materi1.html" class="nav-item">📘 Materi Biotik</a>
+    <a href="halaman_materi1.2.html" class="nav-item">📘 Materi Abiotik</a>
+    <a href="halaman_simulasi_hutan.html" class="nav-item">🧪 Simulasi</a>
+    <a href="#" class="nav-item active">🧩 Kuis</a>
+    <a href="#" class="nav-item locked">💭 Refleksi 🔒</a>
+    <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+  </nav>
+
+  <div class="sidebar-progress-box">
+    <div class="progress-label">Progress Belajar</div>
+    <div class="sidebar-progress-track">
+      <div class="sidebar-progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+  </div>
+</aside>
+
+<!-- ===== KONTEN ===== -->
+<main class="content">
+  <header class="header sticky">
+    <h1>🧩 Kuis Pilihan Ganda – Ekosistem</h1>
+    <div class="countdown-wrapper">
+      <span id="countdown-timer">10:00</span>
+    </div>
+  </header>
+
+  <section class="content-box">
+    <p class="intro">
+      Jawablah soal berikut satu per satu. Kamu dapat menandai soal yang masih ragu.
+    </p>
+
+    <!-- ===== FORM KUIS CBT ===== -->
+    <form id="quizForm" class="quiz-form">
+
+      <!-- PETA NOMOR SOAL -->
+      <div id="questionMap" class="question-map"></div>
+
+      <!-- TOMBOL RAGU-RAGU -->
+      <button type="button" id="markDoubt" class="btn-ragu">
+        ⚠️ Tandai Ragu-ragu
+      </button>
+
+      <!-- INDIKATOR SOAL -->
+      <div id="questionIndicator" class="question-indicator">
+        Soal 1 dari 10
+      </div>
+
+      <!-- KONTAINER SOAL -->
+      <div id="questionContainer"></div>
+
+      <!-- NAVIGASI -->
+<div class="quiz-navigation">
+  <button type="button" id="prevBtn" disabled>⬅ Sebelumnya</button>
+
+  <button
+    type="button"
+    id="submitQuiz"
+    class="btn-selesai"
+    disabled
+  >
+    ✅ Selesai
+  </button>
+
+  <button type="button" id="nextBtn">Berikutnya ➡</button>
+</div>
+
+
+    </form>
+  </section>
+</main>
+
+<!-- ===== POPUP HASIL (TETAP) ===== -->
+<div id="popupResult" class="popup-selesai">
+  <div class="popup-card">
+    <h2>🎉 Hasil Kuis</h2>
+    <p id="scoreText">Skor kamu: 0%</p>
+    <div id="feedbackContainer" class="scroll-feedback"></div>
+
+    <div class="popup-actions">
+      <button id="closePopup">✖️ Tutup</button>
+      <button id="nextQuiz">➡️ Lanjut Kuis 2</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

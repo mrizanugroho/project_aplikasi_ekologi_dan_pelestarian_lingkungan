@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refleksi Materi 1</title>
+  <link rel="stylesheet" href="../css/style_refleksi.css" />
+  <script defer src="../js/refleksi.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- SIDEBAR (aligned with other pages) -->
+    <aside class="sidebar">
+      <button class="btn-back" onclick="window.location.href='halaman_kuis2.html'">⬅ Kembali</button>
+
+      <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="tujuan_dan_apersepsi.html" class="nav-item">🎯 Tujuan & Apersepsi</a>
+      <a href="halaman_materi1.html" class="nav-item">📘 Materi Biotik</a>
+      <a href="halaman_materi1.2.html" class="nav-item">📘 Materi Abiotik</a>
+      <a href="halaman_simulasi_hutan.html" class="nav-item">🧪 Simulasi</a>
+      <a href="kuis_materi1.html" class="nav-item">🧩 Kuis</a>
+      <a href="refleksi_materi1.html" class="nav-item active">💭 Refleksi </a>
+      <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+    </nav>
+
+      <!-- Sidebar progress (same component used in kuis pages) -->
+      <div class="sidebar-progress-box">
+        <div class="progress-label">Progress Belajar</div>
+        <div class="sidebar-progress-track">
+          <div class="sidebar-progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+      </div>
+    </aside>
+
+    <body data-page="refleksi">
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <header class="page-header">
+        <h1>💭 Refleksi Pembelajaran</h1>
+      </header>
+
+      <section class="card">
+        <h2>✍️ Refleksi Diri</h2>
+        <p>Bagaimana pendapatmu tentang kegiatan pembelajaran hari ini?</p>
+        <textarea id="refleksiInput" rows="5" placeholder="Tuliskan pendapatmu di sini..."></textarea>
+      </section>
+
+      <section class="card">
+        <h2>😊 Penilaian Pemahaman</h2>
+        <p>Seberapa paham kamu tentang materi <strong>Ekosistem dan Pengaruh Lingkungan terhadap Organisme?</strong></p>
+<div class="rating-box">
+  <p><strong>Pilih tingkat pemahaman kamu (1–10):</strong></p>
+
+  <div class="rating-grid" id="ratingGrid">
+    <span class="rating-item" data-value="1">1</span>
+    <span class="rating-item" data-value="2">2</span>
+    <span class="rating-item" data-value="3">3</span>
+    <span class="rating-item" data-value="4">4</span>
+    <span class="rating-item" data-value="5">5</span>
+    <span class="rating-item" data-value="6">6</span>
+    <span class="rating-item" data-value="7">7</span>
+    <span class="rating-item" data-value="8">8</span>
+    <span class="rating-item" data-value="9">9</span>
+    <span class="rating-item" data-value="10">10</span>
+  </div>
+
+  <p>Nilai yang kamu pilih: <strong id="ratingValue">-</strong></p>
+</div>
+
+      </section>
+      <button class="submit-btn" id="submitRefleksi">Kirim Refleksi</button>
+    </main>
+  </div>
+
+  <!-- POPUP -->
+  <div class="popup-selesai" id="popupResult">
+    <div class="popup-card">
+      <h2>🎉 Refleksimu Terkirim!</h2>
+      <p id="popupFeedback"></p>
+      <div class="popup-actions">
+        <button id="backToQuiz2" class="btn-outline" aria-label="Kembali ke Kuis 2">⬅ Kembali ke Kuis 2</button>
+        <button id="goToEvaluasi" class="btn-primary" aria-label="Lanjut ke Evaluasi">Lanjut ke Evaluasi →</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ensure no cached persisted state causes odd reload
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+  </script>
+</body>
+</html>

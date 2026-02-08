@@ -1,0 +1,240 @@
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materi 1 | Ekosistem</title>
+  <link rel="stylesheet" href="css/style_materi1.css" />
+  <script defer src="js/script_materi1.js"></script>
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='halaman_materi.html'">
+      ⬅ Kembali
+    </button>
+
+    <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="halaman_materi1.html" class="nav-item active">📘 Materi</a>
+      <a href="#" class="nav-item locked">🧪 Simulasi 🔒</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 1 🔒</a>
+      <a href="kuis_materi1.html" class="nav-item locked">🧩 Kuis 2🔒</a>
+      <a href="#" class="nav-item locked">💭 Refleksi 🔒</a>
+      <a href="#" class="nav-item locked">🧠 Evaluasi 🔒</a>
+    </nav>
+    <!-- === SIDEBAR PROGRESS === -->
+<div class="sidebar-progress-box">
+  <div class="progress-label">Progress Belajar</div>
+  
+  <div class="sidebar-progress-track">
+    <div class="sidebar-progress-fill" id="progress-fill"></div>
+  </div>
+
+  <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+</div>
+  </aside>
+
+  <!-- ===== KONTEN ===== -->
+<main class="content">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <h1>🦋 Konservasi Keanekaragaman Hayati</h1>
+  </header>
+
+  <!-- ===== STORY BANNER ===== -->
+  <section class="story-banner content-box">
+    <div class="story-top">
+      <div class="story-meta">
+        <div class="avatar">🦁</div>
+        <div>
+          <h3>🔎 Misi: Penjaga Keanekaragaman Hayati</h3>
+          <div class="player-line">
+            Peran: <strong>Peneliti Muda</strong> • Level: 1
+          </div>
+        </div>
+      </div>
+
+      <div class="story-actions">
+        <button class="btn-mission">Mulai Misi</button>
+      </div>
+    </div>
+
+    <p>
+      Tahukah kamu bahwa <strong>Harimau Jawa</strong> sudah punah?
+      Hal ini terjadi karena perburuan dan kerusakan habitat.
+      Agar hal serupa tidak terjadi pada makhluk hidup lainnya,
+      manusia perlu melakukan <em>konservasi</em>.
+    </p>
+
+    <div class="mission-cta">
+      <span class="mission-tag">
+        🎯 Misi: Pahami Konservasi
+      </span>
+      <div class="mission-log">
+        Status: Belum dimulai
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PENDAHULUAN ===== -->
+  <section class="content-box">
+    <p class="lead">
+      Alam memberikan banyak manfaat bagi kehidupan manusia,
+      seperti makanan, pakaian, dan tempat tinggal.
+    </p>
+
+    <p>
+      Namun, jika sumber daya alam digunakan secara berlebihan
+      dan tidak bijaksana, maka dapat terjadi kelangkaan
+      bahkan kepunahan makhluk hidup.
+      Oleh karena itu, diperlukan upaya untuk menjaga
+      dan melestarikan alam.
+    </p>
+  </section>
+
+  <!-- ===== MANFAAT KONSERVASI ===== -->
+  <section class="biotik-section content-box">
+    <h3>🌱 Manfaat Konservasi</h3>
+
+    <div class="biotik-grid">
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/ecosystem.png" alt="Manfaat Ekologi">
+        </div>
+        <div class="biotik-body">
+          <h4>🌍 Manfaat Ekologi</h4>
+          <p class="muted">
+            Konservasi membantu menjaga keseimbangan ekosistem
+            sehingga makhluk hidup terhindar dari kepunahan.
+          </p>
+          <p class="example">
+            Dampak: mencegah banjir dan kekeringan.
+          </p>
+        </div>
+      </article>
+
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/economy.png" alt="Manfaat Ekonomi">
+        </div>
+        <div class="biotik-body">
+          <h4>💰 Manfaat Ekonomi</h4>
+          <p class="muted">
+            Konservasi menyediakan sumber pangan, sandang,
+            dan papan secara berkelanjutan.
+          </p>
+          <p class="example">
+            Contoh: ekowisata dan hasil hutan lestari.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== METODE KONSERVASI ===== -->
+  <section class="biotik-section content-box">
+    <h3>🛡️ Metode Konservasi</h3>
+
+    <div class="biotik-grid">
+
+      <!-- IN SITU -->
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/national_park.png" alt="In-situ">
+        </div>
+        <div class="biotik-body">
+          <h4>🌳 Konservasi In-situ</h4>
+          <p class="muted">
+            Konservasi yang dilakukan di habitat asli
+            makhluk hidup tersebut.
+          </p>
+          <p class="example">
+            Contoh: taman nasional, cagar alam.
+          </p>
+        </div>
+      </article>
+
+      <!-- EX SITU -->
+      <article class="biotik-item">
+        <div class="biotik-icon">
+          <img src="img/zoo.png" alt="Eks-situ">
+        </div>
+        <div class="biotik-body">
+          <h4>🏞️ Konservasi Eks-situ</h4>
+          <p class="muted">
+            Konservasi yang dilakukan di luar habitat aslinya
+            karena habitat alami sudah rusak.
+          </p>
+          <p class="example">
+            Contoh: kebun binatang dan penangkaran.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== MENGAPA PENTING ===== -->
+  <section class="content-box">
+    <h3>❓ Mengapa Konservasi Itu Penting?</h3>
+    <p>
+      Jika satu spesies punah, keseimbangan ekosistem dapat terganggu.
+      Hal ini dapat memengaruhi rantai makanan dan kehidupan manusia.
+    </p>
+    <p>
+      Semakin tinggi keanekaragaman hayati,
+      semakin stabil suatu ekosistem.
+    </p>
+  </section>
+
+  <!-- ===== AKSI NYATA ===== -->
+  <section class="content-box">
+    <h3>🌱 Aksi Nyata yang Bisa Kamu Lakukan</h3>
+    <ul>
+      <li>Mengurangi penggunaan plastik</li>
+      <li>Membuang sampah pada tempatnya</li>
+      <li>Menanam dan merawat tumbuhan</li>
+      <li>Menghemat energi dan air</li>
+    </ul>
+  </section>
+
+  <!-- ===== KESIMPULAN ===== -->
+  <section class="content-box">
+    <h3>🎯 Kesimpulan</h3>
+    <p>
+      Konservasi keanekaragaman hayati sangat penting
+      untuk menjaga keseimbangan alam dan kehidupan manusia.
+    </p>
+    <p>
+      Sebagai <strong>Peneliti Muda</strong>,
+      kamu dapat berperan aktif dalam menjaga alam 🌿
+    </p>
+  </section>
+
+</main>
+
+
+
+
+<!-- ===== Mini-quest Completed Modal (paste before </body>) ===== -->
+<div id="mq-complete-overlay" class="mq-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="mq-complete-title">
+  <div class="mq-modal">
+    <div class="mq-emoji">🎉</div>
+    <h2 id="mq-complete-title">Hebat!</h2>
+    <p id="mq-complete-text">Kamu telah menyelesaikan misi ini. Yuk lanjut ke simulasi untuk melihat penerapannya!</p>
+    <p id="mq-complete-points" class="mq-points" style="display:none;">+10 poin untuk menyelesaikan misi!</p>
+    <div class="mq-actions">
+      <button id="mq-close-btn" class="btn">Tutup</button>
+      <button id="mq-go-sim-btn" class="btn primary">➡️ Lanjut ke Simulasi</button>
+    </div>
+  </div>
+</div>
+<!-- ===== end modal ===== -->
+
+</body>
+</html>
