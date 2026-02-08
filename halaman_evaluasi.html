@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evaluasi – Ekosistem</title>
+  <link rel="stylesheet" href="css/style_evaluasi.css"/>
+
+  <!-- html2canvas untuk export PNG -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='refleksi_materi1.html'">
+      ⬅ Kembali
+    </button>
+
+    <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+
+    <nav class="nav-menu">
+      <a href="tujuan_dan_apersepsi.html" class="nav-item">🎯 Tujuan & Apersepsi</a>
+      <a href="halaman_materi1.html" class="nav-item">📘 Materi Biotik</a>
+      <a href="halaman_materi1.2.html" class="nav-item">📘 Materi Abiotik</a>
+      <a href="halaman_simulasi_hutan.html" class="nav-item">🧪 Simulasi</a>
+      <a href="kuis_materi1.html" class="nav-item">🧩 Kuis</a>
+      <a href="refleksi_materi1.html" class="nav-item">💭 Refleksi </a>
+      <a href="halaman_evaluasi.html" class="nav-item active">🧠 Evaluasi</a>
+    </nav>
+        <!-- Sidebar progress (dari Simulasi / Kuis1) -->
+    <div class="sidebar-progress-box">
+      <div class="progress-label">Progress Belajar</div>
+      <div class="sidebar-progress-track">
+        <div class="sidebar-progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <!-- Header (sticky) -->
+    <header class="page-header">
+      <div class="page-title">
+        <span class="emoji">🧠</span>
+        Evaluasi Akhir – Materi Ekosistem
+      </div>
+      <!-- COUNTDOWN (paste inside header) -->
+<div class="countdown-wrapper" aria-hidden="false">
+  <span id="countdown-timer" aria-live="polite">30:00</span>
+</div>
+<!-- end countdown -->
+    </header>
+
+    <!-- Petunjuk -->
+    <section class="card hint-card">
+      Jawablah seluruh pertanyaan di bawah ini dengan baik. Pastikan kamu memahami materi sebelum menjawab.
+    </section>
+
+    <!-- Soal Pilihan Ganda -->
+    <form id="evaluasiForm">
+      <section class="card question-card">
+        <h3>1. Ekosistem adalah …</h3>
+        <label class="option"><input type="radio" name="q1" value="A"/> Interaksi makhluk hidup dengan lingkungannya</label>
+        <label class="option"><input type="radio" name="q1" value="B"/> Kumpulan individu sejenis</label>
+        <label class="option"><input type="radio" name="q1" value="C"/> Tempat hidup makhluk hidup</label>
+        <label class="option"><input type="radio" name="q1" value="D"/> Hubungan antara predator dan mangsa</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>2. Komponen abiotik di bawah ini adalah …</h3>
+        <label class="option"><input type="radio" name="q2" value="A"/> Pohon</label>
+        <label class="option"><input type="radio" name="q2" value="B"/> Air</label>
+        <label class="option"><input type="radio" name="q2" value="C"/> Ikan</label>
+        <label class="option"><input type="radio" name="q2" value="D"/> Burung</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>3. Hewan pemakan tumbuhan disebut …</h3>
+        <label class="option"><input type="radio" name="q3" value="A"/> Karnivora</label>
+        <label class="option"><input type="radio" name="q3" value="B"/> Herbivora</label>
+        <label class="option"><input type="radio" name="q3" value="C"/> Omnivora</label>
+        <label class="option"><input type="radio" name="q3" value="D"/> Dekomposer</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>4. Contoh hubungan simbiosis mutualisme adalah …</h3>
+        <label class="option"><input type="radio" name="q4" value="A"/> Bunga dan lebah</label>
+        <label class="option"><input type="radio" name="q4" value="B"/> Cacing dan manusia</label>
+        <label class="option"><input type="radio" name="q4" value="C"/> Penyakit dan inang</label>
+        <label class="option"><input type="radio" name="q4" value="D"/> Burung dan ulat</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>5. Faktor yang memengaruhi fotosintesis adalah …</h3>
+        <label class="option"><input type="radio" name="q5" value="A"/> Air, cahaya, dan karbon dioksida</label>
+        <label class="option"><input type="radio" name="q5" value="B"/> Air dan tanah</label>
+        <label class="option"><input type="radio" name="q5" value="C"/> Oksigen dan hewan</label>
+        <label class="option"><input type="radio" name="q5" value="D"/> Suhu dan predator</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>6. Dalam rantai makanan, peran produsen adalah …</h3>
+        <label class="option"><input type="radio" name="q6" value="A"/> Pemakan tumbuhan</label>
+        <label class="option"><input type="radio" name="q6" value="B"/> Pembuat makanan sendiri</label>
+        <label class="option"><input type="radio" name="q6" value="C"/> Pemangsa</label>
+        <label class="option"><input type="radio" name="q6" value="D"/> Pengurai</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>7. Contoh ekosistem buatan adalah …</h3>
+        <label class="option"><input type="radio" name="q7" value="A"/> Hutan</label>
+        <label class="option"><input type="radio" name="q7" value="B"/> Danau</label>
+        <label class="option"><input type="radio" name="q7" value="C"/> Kebun</label>
+        <label class="option"><input type="radio" name="q7" value="D"/> Sungai</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>8. Hewan pemakan segala disebut …</h3>
+        <label class="option"><input type="radio" name="q8" value="A"/> Herbivora</label>
+        <label class="option"><input type="radio" name="q8" value="B"/> Karnivora</label>
+        <label class="option"><input type="radio" name="q8" value="C"/> Omnivora</label>
+        <label class="option"><input type="radio" name="q8" value="D"/> Insektivora</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>9. Hubungan makhluk hidup dengan lingkungan termasuk cabang ilmu …</h3>
+        <label class="option"><input type="radio" name="q9" value="A"/> Geografi</label>
+        <label class="option"><input type="radio" name="q9" value="B"/> Biologi</label>
+        <label class="option"><input type="radio" name="q9" value="C"/> Ekologi</label>
+        <label class="option"><input type="radio" name="q9" value="D"/> Sosiologi</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>10. Yang termasuk komponen biotik adalah …</h3>
+        <label class="option"><input type="radio" name="q10" value="A"/> Udara</label>
+        <label class="option"><input type="radio" name="q10" value="B"/> Batu</label>
+        <label class="option"><input type="radio" name="q10" value="C"/> Air</label>
+        <label class="option"><input type="radio" name="q10" value="D"/> Rumput</label>
+      </section>
+
+      <!-- Esai -->
+      <section class="card essay-card">
+        <h3>📝 Soal Esai</h3>
+
+        <div class="essay-item">
+          <label>1. Jelaskan pengertian ekosistem dengan bahasamu sendiri.</label>
+          <textarea class="essay-input" name="e1" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+
+        <div class="essay-item">
+          <label>2. Sebutkan contoh interaksi antara makhluk hidup dan lingkungan yang kamu lihat di sekitar.</label>
+          <textarea class="essay-input" name="e2" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+
+        <div class="essay-item">
+          <label>3. Mengapa keanekaragaman makhluk hidup penting dalam suatu ekosistem?</label>
+          <textarea class="essay-input" name="e3" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+
+        <div class="essay-item">
+          <label>4. Bagaimana pengaruh cahaya terhadap kehidupan tumbuhan?</label>
+          <textarea class="essay-input" name="e4" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+
+        <div class="essay-item">
+          <label>5. Menurutmu, apa yang bisa dilakukan manusia agar keseimbangan ekosistem tetap terjaga?</label>
+          <textarea class="essay-input" name="e5" placeholder="Tulis jawabanmu di sini..."></textarea>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="button" class="btn success" id="submitBtn">✅ Kumpulkan Jawaban</button>
+      </div>
+    </form>
+  </main>
+  <!-- ====== POPUP KONFIRMASI ====== -->
+<div id="popupOverlay" class="popup-overlay hidden">
+  <div class="popup-card">
+    <h2 id="popupTitle">Hasil Evaluasi</h2>
+    <p id="popupMessage"></p>
+    <div class="popup-buttons">
+      <button id="backToMateri" class="btn">📘 Kembali ke Halaman Materi</button>
+      <button id="nextMateri" class="btn primary">➡️ Lanjut ke Materi Selanjutnya</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Eval: Pending review modal (paste before </body>) ===== -->
+<div id="eval-pending-overlay" class="overlay hidden" aria-modal="true" role="dialog">
+  <div class="card modal-card">
+    <div class="modal-emoji">🎓</div>
+    <h2 class="modal-title">Jawaban sudah terkumpul</h2>
+    <p class="modal-text">Jawaban kamu sudah terkumpul. Silakan tunggu penilaian dari guru. Kami akan beri tahu jika penilaian selesai.</p>
+
+    <div class="modal-actions">
+      <button id="eval-pending-back-materi" class="btn">Kembali ke Materi</button>
+      <button id="eval-pending-close" class="btn secondary">Tutup</button>
+    </div>
+  </div>
+</div>
+<!-- ===== end pending modal ===== -->
+
+<!-- ===== end badge modal ===== -->
+  <script src="js/evaluasi.js"></script>
+</body>
+</html>

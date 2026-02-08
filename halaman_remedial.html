@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Remedial – Materi Ekosistem</title>
+  <!-- reuse CSS evaluasi agar tampilannya sama -->
+  <link rel="stylesheet" href="css/style_evaluasi.css" />
+</head>
+<body>
+  <!-- SIDEBAR: gunakan markup yang mirip evaluasi -->
+  <aside class="sidebar">
+    <button class="btn-back" onclick="window.location.href='halaman_evaluasi.html'">⬅ Kembali</button>
+    <h2>🌿 <br><span>Materi 1:</span><br>Ekosistem</h2>
+    <nav class="nav-menu">
+      <a href="halaman_materi1.html" class="nav-item">📘 Materi</a>
+      <a href="halaman_simulasi_hutan.html" class="nav-item">🧪 Simulasi</a>
+      <a href="halaman_kuis1.html" class="nav-item">🧩 Kuis 1</a>
+      <a href="halaman_kuis2.html" class="nav-item">🧩 Kuis 2</a>
+      <a href="refleksi_materi1.html" class="nav-item">💭 Refleksi</a>
+      <a href="halaman_evaluasi.html" class="nav-item">🧠 Evaluasi</a>
+    </nav>
+
+    <div class="sidebar-progress-box">
+      <div class="progress-label">Progress Belajar</div>
+      <div class="sidebar-progress-track"><div class="sidebar-progress-fill" id="progress-fill"></div></div>
+      <div class="sidebar-progress-percent" id="progress-percent">0%</div>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <header class="page-header">
+      <div class="page-title"><span class="emoji">🔧</span> Remedial – Perbaiki Pemahaman</div>
+    </header>
+
+    <section class="card hint-card">
+      Halaman remedial ini menampilkan topik yang perlu kamu perbaiki. Kerjakan latihan singkat di bawah lalu klik <strong>Selesai Remedial</strong>.
+    </section>
+
+    <!-- area rekomendasi (akan diisi oleh JS berdasarkan hasil pengecekan) -->
+    <section id="remedial-list" class="card">
+      <h3>Topik direkomendasikan</h3>
+      <div id="remedial-items">
+        <!-- JS akan isi card topik di sini -->
+        <p style="color:#0a6a50">(Tidak ada rekomendasi — gunakan tombol "Mulai Tes" untuk melihat contoh.)</p>
+      </div>
+    </section>
+
+    <!-- Contoh soal remedial (PG + esai) -->
+    <form id="remedialForm">
+      <section class="card question-card">
+        <h3>1. (PG) Komponen biotik pada ekosistem contohnya adalah …</h3>
+        <label class="option"><input type="radio" name="r1" value="A"> Matahari</label>
+        <label class="option"><input type="radio" name="r1" value="B"> Air</label>
+        <label class="option"><input type="radio" name="r1" value="C"> Rumput</label>
+        <label class="option"><input type="radio" name="r1" value="D"> Batu</label>
+      </section>
+
+      <section class="card question-card">
+        <h3>2. (PG) Yang termasuk faktor fotosintesis adalah …</h3>
+        <label class="option"><input type="radio" name="r2" value="A"> Cahaya, air, CO₂</label>
+        <label class="option"><input type="radio" name="r2" value="B"> Suhu, garam, batu</label>
+        <label class="option"><input type="radio" name="r2" value="C"> Hewan, tumbuhan, jamur</label>
+        <label class="option"><input type="radio" name="r2" value="D"> Hanya cahaya</label>
+      </section>
+
+      <section class="card essay-card">
+        <h3>📝 Soal Esai Singkat</h3>
+        <div class="essay-item">
+          <label>1. Jelaskan mengapa cahaya penting untuk tumbuhan (2–3 kalimat).</label>
+          <textarea class="essay-input" name="e1" placeholder="Tulis jawaban singkat..."></textarea>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="runTestBtn" class="btn success">Mulai Tes (contoh)</button>
+        <button type="button" id="submitRemedial" class="btn primary">✅ Selesai Remedial</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- popup hasil remedial -->
+  <div id="remedialOverlay" class="popup-overlay hidden">
+    <div class="popup-card">
+      <h2 id="remedialTitle">Hasil Remedial</h2>
+      <div id="remedialSummary"></div>
+      <div class="popup-buttons" style="margin-top:18px;">
+        <button id="backToMaterial" class="btn">📘 Kembali ke Materi</button>
+        <button id="retryRemedial" class="btn">🔁 Ulang Remedial</button>
+        <button id="goToPractice" class="btn primary">➡️ Lanjut ke Latihan</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/remedial.js"></script>
+</body>
+</html>
