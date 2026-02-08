@@ -1,0 +1,270 @@
+/* ===========================
+   style_kuis2.css (merged, updated)
+   - Sidebar style diselaraskan dengan style_kuis.css
+   - Fix: hilangkan scrollbar ganda & sembunyikan scrollbar sidebar visualnya
+   - Fix: tambahkan jarak antara drop-zone dan tombol Periksa Jawaban
+   =========================== */
+
+/* RESET & BASE */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f0fdf4;
+  overflow-x: hidden;           /* cegah horizontal overflow */
+  color: #064e3b;
+  overscroll-behavior: contain; /* cegah overscroll menarik body */
+  height: 100%;
+}
+
+/* Ensure body scrollbar appears only when content exceeds viewport and avoid double scrollbars */
+html { overflow-y: auto; }
+body { overflow-y: auto; }
+
+/* SIDEBAR (sama seperti Kuis1 / Simulasi) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  max-height: 100vh;
+  background: linear-gradient(180deg, #bbf7d0, #dcfce7);
+  box-shadow: 3px 0 10px rgba(0,0,0,0.08);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 50;
+  overflow-y: auto; /* jika perlu scroll, tetap di sidebar, bukan body */
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar visually but keep scrolling functional (for a cleaner look like Kuis1) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.sidebar::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
+.btn-back {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  width: 90%;
+  transition: 0.3s;
+}
+.btn-back:hover { background: #15803d; }
+.sidebar h2 { text-align:center; font-size:18px; font-weight:700; margin-bottom:20px; color:#065f46; line-height:1.4; }
+
+.nav-menu { display:flex; flex-direction:column; width:100%; gap:10px; }
+.nav-item {
+  display:block; text-align:left; font-weight:600; color:#065f46;
+  padding:10px 14px; background:#e6fffa; border-radius:10px; text-decoration:none; transition:.3s;
+}
+.nav-item:hover:not(.locked):not(.active) { background:#9ae6b4; }
+.nav-item.active { background:#bbf7d0; border-left:4px solid #16a34a; font-weight:700; }
+.nav-item.locked { background:#f1f5f9; color:#94a3b8; cursor:not-allowed; }
+
+/* SIDEBAR PROGRESS (reuse styles similar to materi) */
+.sidebar-progress-box {
+  width: 92%;
+  margin-top: 18px;
+  padding: 12px;
+  background: #e8fff1;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px #d1f7e1, 0 6px 12px rgba(0,0,0,0.04);
+}
+.progress-label { font-weight:800; font-size:0.9rem; color:#065f46; margin-bottom:6px; }
+.sidebar-progress-track { width:100%; height:10px; background:#d7f5e4; border-radius:10px; overflow:hidden; }
+.sidebar-progress-fill { height:100%; width:0%; border-radius:10px; background: linear-gradient(90deg,#10b981,#06b6d4); transition: width .45s ease; }
+.sidebar-progress-percent { margin-top:6px; font-weight:700; font-size:0.85rem; color:#047857; text-align:right; }
+
+/* KONTEN */
+.content {
+  margin-left: 270px; /* beri ruang untuk sidebar agar tidak menutupi konten */
+  padding: 24px;
+  min-height: 100vh;
+  overflow: visible; /* pastikan konten tidak memaksa overflow */
+}
+.header {
+  background: linear-gradient(90deg, #16a34a, #0ea5e9);
+  color: white;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+.header.sticky { position: sticky; top: 16px; z-index: 20; }
+
+/* DRAG AREA */
+.drag-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.draggable {
+  background: #e8f8ef;
+  border: 2px solid #21a65b;
+  border-radius: 12px;
+  padding: 10px 20px;
+  cursor: grab;
+  font-size: 20px;
+  user-select: none;
+  transition: 0.2s ease;
+}
+.draggable:active { cursor: grabbing; transform: scale(1.05); background: #d4f4df; }
+
+.drop-zone-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.drop-zone {
+  flex: 1;
+  min-width: 250px;
+  background: #f5fdf8;
+  border: 3px dashed #21a65b;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: background 0.3s;
+  overflow: visible; /* memastikan isi drop zone tidak memaksa scroll pada body */
+}
+.drop-zone.drag-over { background: #d7fbe8; }
+.drop-zone h3 { color: #104d2f; margin-bottom: 10px; }
+.drop-zone .draggable { margin-top: 8px; background: #ffffff; border: 2px solid #c1e9cf; }
+
+/* === FIX: Jarak tombol Periksa dari drop-zone === */
+.done-section {
+  margin-top: 36px; /* beri jarak yang cukup agar tombol tidak menempel */
+  display: flex;
+  justify-content: center;
+}
+
+/* Tombol Periksa jawaban: tampil konsisten */
+#checkAnswer {
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .2s;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+}
+#checkAnswer:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,128,0,0.28); }
+#checkAnswer:disabled { opacity: 0.65; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* POPUP HASIL */
+.popup-selesai { display: none; position: fixed; top: 0; left: 0; width:100%; height:100%; background: rgba(0,0,0,0.45); justify-content:center; align-items:center; z-index:999; }
+.popup-selesai.show { display:flex; }
+.popup-card { background:#fff; padding:25px; border-radius:20px; width:500px; max-height:75vh; overflow:hidden; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.2); }
+.scroll-feedback { max-height:45vh; overflow-y:auto; text-align:left; margin-top:15px; padding-right:10px; }
+
+/* FEEDBACK */
+.feedback-card { margin-bottom: 12px; padding: 12px 15px; border-radius: 10px; border-left: 6px solid; line-height: 1.5; }
+.feedback-card.correct { background-color: #e8fbe8; border-left-color: #27ae60; }
+.feedback-card.wrong { background-color: #ffe8e8; border-left-color: #e74c3c; }
+
+/* Tombol popup modern (jika diperlukan) */
+.popup-card .popup-actions { display:flex; gap:12px; justify-content:center; align-items:center; margin-top:14px; }
+#closePopup { background: linear-gradient(180deg,#ff6b6b,#ef4444); color:#fff; border:none; padding:10px 16px; border-radius:12px; font-weight:700; box-shadow:0 6px 18px rgba(239,68,68,0.18); cursor:pointer; }
+#nextQuiz { background: linear-gradient(90deg,#06b6d4,#0ea5e9); color:#fff; border:none; padding:10px 18px; border-radius:12px; font-weight:800; cursor:pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .sidebar { width:220px; }
+  .content { margin-left: 220px; padding:16px; }
+}
+@media (max-width: 640px) {
+  .sidebar { position: relative; width:100%; height:auto; padding-bottom:12px; flex-direction:row; gap:12px; align-items:flex-start; }
+  .content { margin-left:0; padding:12px; }
+  .header.sticky { position: static; }
+  .sidebar-progress-box { display:none; }
+}
+
+/* === Popup action buttons (Kuis 2) === */
+.popup-card .popup-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* Tombol Coba Lagi (secondary / coral) */
+#retryBtn {
+  background: linear-gradient(180deg, #ff7b72, #ef4444);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(239,68,68,0.14);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
+}
+#retryBtn .btn-ico { font-size: 14px; line-height:1; }
+#retryBtn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(239,68,68,0.2); }
+#retryBtn:active { transform: translateY(0); }
+
+/* Tombol Lanjut ke Refleksi (primary / teal-blue) */
+#nextPage {
+  background: linear-gradient(90deg, #06b6d4, #0ea5e9);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 0 10px 26px rgba(6,182,212,0.12);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#nextPage .btn-ico { font-size: 14px; }
+#nextPage:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(6,182,212,0.18); }
+
+/* Accessibility focus outline */
+#retryBtn:focus, #nextPage:focus {
+  outline: 3px solid rgba(14,165,233,0.14);
+  outline-offset: 3px;
+}
+
+/* Responsive: tombol vertikal pada layar kecil */
+@media (max-width: 420px) {
+  .popup-card .popup-actions { flex-direction: column-reverse; gap: 10px; }
+  #retryBtn, #nextPage { width: 100%; justify-content: center; }
+}
+
+/* ===== poin kuis (tampilan di popup) ===== */
+.quiz-points-display {
+  background: linear-gradient(90deg,#06b6d4,#10b981);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: inline-block;
+  font-weight: 800;
+  margin: 10px auto 0;
+  box-shadow: 0 8px 20px rgba(6,95,70,0.08);
+  text-align: center;
+  width: calc(100% - 40px);
+  max-width: 420px;
+}
+@media (max-width:420px) {
+  .quiz-points-display { width: calc(100% - 28px); padding: 10px; font-size: 0.95rem; }
+}

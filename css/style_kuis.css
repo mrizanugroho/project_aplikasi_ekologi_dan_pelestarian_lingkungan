@@ -1,0 +1,658 @@
+/* -------------------- RESET & BASE -------------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f0fdf4;
+  overflow-x: hidden;
+  color: #064e3b;
+}
+
+/* -------------------- SIDEBAR (dari Simulasi) -------------------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  background: linear-gradient(180deg, #bbf7d0, #dcfce7);
+  box-shadow: 3px 0 10px rgba(0,0,0,0.08);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 50;
+}
+.btn-back {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  width: 90%;
+  transition: 0.3s;
+}
+.btn-back:hover { background: #15803d; }
+.sidebar h2 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #065f46;
+  line-height: 1.4;
+}
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+.nav-item {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  color: #065f46;
+  padding: 10px 14px;
+  background: #e6fffa;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.nav-item:hover:not(.locked):not(.active) { background: #9ae6b4; }
+.nav-item.active {
+  background: #bbf7d0;
+  border-left: 4px solid #16a34a;
+  font-weight: 700;
+}
+.nav-item.locked {
+  background: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* SIDEBAR PROGRESS (reuse styles similar to materi) */
+.sidebar-progress-box {
+  width: 92%;
+  margin-top: 18px;
+  padding: 12px;
+  background: #e8fff1;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px #d1f7e1, 0 6px 12px rgba(0,0,0,0.04);
+}
+.progress-label { font-weight:800; font-size:0.9rem; color:#065f46; margin-bottom:6px; }
+.sidebar-progress-track { width:100%; height:10px; background:#d7f5e4; border-radius:10px; overflow:hidden; }
+.sidebar-progress-fill { height:100%; width:0%; border-radius:10px; background: linear-gradient(90deg,#10b981,#06b6d4); transition: width .45s ease; }
+.sidebar-progress-percent { margin-top:6px; font-weight:700; font-size:0.85rem; color:#047857; text-align:right; }
+
+/* -------------------- KONTEN -------------------- */
+.content {
+  margin-left: 270px; /* penting supaya tidak tertutup sidebar */
+  padding: 24px;
+  min-height: 100vh;
+}
+.header {
+  background: linear-gradient(90deg, #16a34a, #0ea5e9);
+  color: white;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+.header.sticky { position: sticky; top: 16px; z-index: 20; }
+
+/* KARTU & KUIS (dari style_kuis) */
+.content-box {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.quiz-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.question-block {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 18px 25px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+.question-block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+}
+.question-block h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #104d2f;
+  line-height: 1.5;
+}
+.option-label {
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 8px;
+  font-size: 16px;
+  color: #1e4936;
+  cursor: pointer;
+}
+.option-label input {
+  margin-right: 8px;
+  transform: scale(1.2);
+  accent-color: #21a65b;
+}
+
+/* tombol selesai */
+.btn-selesai {
+  background: #21a65b;
+  color: white;
+  font-weight: 600;
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-selesai:hover { background: #19904b; }
+
+/* popup hasil */
+.popup-selesai {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);
+  justify-content: center; align-items: center; z-index: 999;
+}
+.popup-selesai.show { display: flex; }
+.popup-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  width: 500px;
+  max-height: 75vh;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.scroll-feedback { max-height: 45vh; overflow-y: auto; text-align: left; margin-top: 15px; padding-right: 10px; }
+
+/* feedback styles */
+.feedback-card { margin-bottom: 12px; padding: 12px 15px; border-radius: 10px; border-left: 6px solid; line-height: 1.5; }
+.feedback-card.correct { background-color: #e8fbe8; border-left-color: #27ae60; }
+.feedback-card.wrong { background-color: #ffe8e8; border-left-color: #e74c3c; }
+
+/* countdown timer */
+.countdown-wrapper { display:flex; justify-content:flex-end; margin-top:8px; }
+#countdown-timer {
+  background: linear-gradient(90deg,#f97316,#f59e0b);
+  color: #fff;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(249,115,22,0.12);
+  font-size: 0.95rem;
+}
+
+/* responsive: kecilkan margin konten agar muat di layar kecil */
+@media (max-width: 900px) {
+  .sidebar { width: 220px; }
+  .content { margin-left: 220px; padding: 16px; }
+}
+@media (max-width: 640px) {
+  .sidebar { position: relative; width: 100%; height: auto; padding-bottom: 12px; flex-direction: row; gap: 12px; align-items: flex-start; }
+  .content { margin-left: 0; padding: 12px; }
+  .header.sticky { position: static; }
+  .sidebar-progress-box { display:none; } /* sembunyikan progress di very small untuk kerapihan */
+}
+
+/* ----- Tombol popup hasil: style modern ----- */
+/* container tombol pada popup (pastikan selektor sesuai dengan markup) */
+.popup-card .popup-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+}
+
+/* tombol tutup (merah/koral) */
+#closePopup {
+  background: linear-gradient(180deg, #ff6b6b, #ef4444);
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(239,68,68,0.18);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
+}
+
+/* ikon kecil di dalam button (kamu bisa pakai emoji atau font-icon) */
+#closePopup .btn-ico { font-size: 15px; line-height: 1; }
+
+/* hover & active */
+#closePopup:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(239,68,68,0.22); }
+#closePopup:active { transform: translateY(0); opacity: .95; }
+
+/* tombol lanjut (biru/teal) */
+#nextQuiz {
+  background: linear-gradient(90deg, #06b6d4, #0ea5e9);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(14,165,233,0.12);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#nextQuiz .btn-ico { font-size: 14px; }
+
+/* hover & fokus */
+#nextQuiz:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(6,182,212,0.18); }
+#nextQuiz:focus { outline: 3px solid rgba(14,165,233,0.12); outline-offset: 3px; }
+
+/* tombol sekunder kecil (mis. outline) — jika butuh */
+.popup-card .btn-outline {
+  background: transparent;
+  border: 2px solid #e6eef3;
+  color: #064e3b;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight:600;
+}
+
+/* responsive: pastikan tombol tidak overflow di layar kecil */
+@media (max-width: 420px) {
+  .popup-card { width: calc(100% - 28px); padding: 18px; }
+  .popup-card .popup-actions { flex-direction: column-reverse; gap: 10px; }
+  #closePopup, #nextQuiz { width: 100%; justify-content:center; }
+}
+
+.quiz-points-display {
+  background: linear-gradient(90deg,#06b6d4,#10b981);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: 800;
+  margin-top: 10px;
+  box-shadow: 0 6px 18px rgba(6,95,70,0.06);
+}
+
+/* ===== modal: keep actions fixed & make content scroll inside ===== */
+/* target nama kelas umum dari modal hasil (sesuaikan jika class berbeda: .popup-card / .mq-modal / .popup) */
+.popup-card, .mq-modal, .popup {
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;           /* modal won't exceed viewport height */
+  width: 640px;               /* keep same width as before or adjust */
+  box-sizing: border-box;
+}
+
+/* the scrollable area inside the modal (feedback / result list).
+   Try several likely selectors; whichever matches your modal structure will work.
+   If your result HTML uses a different wrapper, pick that selector instead. */
+.popup-card .popup-body,
+.popup-card .popup-content,
+.popup-card .results,
+.popup-card .feedback,
+.mq-modal .popup-card-body,
+.mq-modal .popup-body {
+  overflow-y: auto;
+  flex: 1 1 auto;           /* grow to fill modal while keeping footer visible */
+  padding-right: 8px;       /* avoid scrollbar overlapping content */
+}
+
+/* Ensure actions/footer stay visible */
+.popup-card .mq-actions,
+.popup-card .popup-actions,
+.mq-modal .mq-actions,
+.popup .mq-actions {
+  flex: 0 0 auto;
+  margin-top: 12px;
+  position: relative;       /* keep inside modal box but not part of scroll area */
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* If modal uses explicit inner scroll container with a fixed height,
+   this will make sure the footer overlaps nicely with slight fade */
+.popup-card .popup-body::after {
+  content: "";
+  display: block;
+  height: 8px;
+  pointer-events: none;
+}
+
+/* small responsive tweak */
+@media (max-width:720px){
+  .popup-card, .mq-modal, .popup { width: calc(100% - 32px); max-height: 85vh; }
+}
+
+/* =======================================================
+   CBT QUIZ EXTENSION STYLE
+   Tidak mengganggu sidebar, header, popup
+======================================================= */
+
+/* ---------- PETA NOMOR SOAL ---------- */
+.question-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.question-number {
+  background: #e5e7eb;
+  color: #064e3b;
+  border-radius: 8px;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s ease;
+}
+
+.question-number:hover {
+  background: #d1fae5;
+}
+
+/* status aktif */
+.question-number.active {
+  outline: 3px solid #0ea5e9;
+  outline-offset: 1px;
+}
+
+/* sudah dijawab */
+.question-number.answered {
+  background: #22c55e;
+  color: white;
+}
+
+/* ragu-ragu */
+.question-number.doubt {
+  background: #f97316;
+  color: white;
+}
+
+/* ---------- INDIKATOR SOAL ---------- */
+.question-indicator {
+  background: #dcfce7;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-align: center;
+  color: #065f46;
+  margin-bottom: 12px;
+}
+
+/* ---------- TOMBOL RAGU-RAGU ---------- */
+.btn-ragu {
+  background: linear-gradient(90deg, #fb923c, #f97316);
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 16px rgba(249,115,22,0.18);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn-ragu:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(249,115,22,0.25);
+}
+
+.btn-ragu.active {
+  background: linear-gradient(90deg, #f97316, #ea580c);
+}
+
+/* ---------- NAVIGASI SOAL ---------- */
+.quiz-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.quiz-navigation button {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.quiz-navigation button:hover {
+  background: #15803d;
+}
+
+.quiz-navigation button:disabled {
+  background: #a7f3d0;
+  cursor: not-allowed;
+}
+
+/* ---------- TOMBOL SUBMIT ---------- */
+.btn-selesai {
+  margin-top: 25px;
+}
+
+.btn-selesai:disabled {
+  background: #d1d5db !important;
+  color: #6b7280;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ---------- SOAL ---------- */
+.question-block {
+  animation: fadeSlide 0.25s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- LEGEND WARNA (opsional) ---------- */
+.quiz-legend {
+  display: flex;
+  gap: 14px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.quiz-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.legend-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.legend-default { background: #e5e7eb; }
+.legend-answered { background: #22c55e; }
+.legend-doubt { background: #f97316; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .question-map {
+    grid-template-columns: repeat(auto-fit, minmax(36px, 1fr));
+  }
+
+  .btn-ragu {
+    width: 100%;
+    text-align: center;
+  }
+
+  .quiz-navigation {
+    flex-direction: column;
+  }
+
+  .quiz-navigation button {
+    width: 100%;
+  }
+}
+
+/* ===============================
+   PILIHAN JAWABAN MODEL BUTTON
+================================ */
+
+.answer-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.answer-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #d1fae5;
+  background: #f0fdf4;
+  font-weight: 600;
+  color: #065f46;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* hover */
+.answer-btn:hover {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+
+/* radio disembunyikan */
+.answer-btn input {
+  display: none;
+}
+
+/* saat dipilih */
+.answer-btn.selected {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: white;
+  border-color: #16a34a;
+  box-shadow: 0 6px 18px rgba(34,197,94,0.25);
+}
+
+/* huruf opsi (A, B, C, D) */
+.answer-label {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #bbf7d0;
+  color: #065f46;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.answer-btn.selected .answer-label {
+  background: white;
+  color: #16a34a;
+}
+
+.question-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #064e3b;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+/* ==============================
+   MODE CBT TANPA SCROLL
+================================ */
+.quiz-form {
+  height: calc(100vh - 220px); /* header + margin */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.question-block {
+  padding: 14px 20px;
+}
+
+.question-text {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.answer-options {
+  gap: 10px;
+}
+
+.answer-btn {
+  padding: 12px 14px;
+}
+
+.header {
+  margin-bottom: 12px;
+}
+
+/* ===============================
+   LAYOUT CBT TANPA SCROLL
+================================ */
+.quiz-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  height: calc(100vh - 160px); /* header + margin */
+}
+
+/* KOLOM NOMOR SOAL */
+.quiz-sidebar {
+  background: #eafff3;
+  border-radius: 14px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.question-numbers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+/* KOLOM SOAL */
+.quiz-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
