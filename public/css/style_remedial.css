@@ -1,0 +1,559 @@
+/* ===== RESET DASAR ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  background-color: #e8fff0;
+  color: #0b3d2e;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* SIDEBAR (sama seperti Kuis1 / Simulasi) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100vh;
+  max-height: 100vh;
+  background: linear-gradient(180deg, #bbf7d0, #dcfce7);
+  box-shadow: 3px 0 10px rgba(0,0,0,0.08);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 50;
+  overflow-y: auto; /* jika perlu scroll, tetap di sidebar, bukan body */
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar visually but keep scrolling functional (for a cleaner look like Kuis1) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.sidebar::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
+.btn-back {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  width: 90%;
+  transition: 0.3s;
+}
+.btn-back:hover { background: #15803d; }
+.sidebar h2 { text-align:center; font-size:18px; font-weight:700; margin-bottom:20px; color:#065f46; line-height:1.4; }
+
+.nav-menu { display:flex; flex-direction:column; width:100%; gap:10px; }
+.nav-item {
+  display:block; text-align:left; font-weight:600; color:#065f46;
+  padding:10px 14px; background:#e6fffa; border-radius:10px; text-decoration:none; transition:.3s;
+}
+.nav-item:hover:not(.locked):not(.active) { background:#9ae6b4; }
+.nav-item.active { background:#bbf7d0; border-left:4px solid #16a34a; font-weight:700; }
+.nav-item.locked { background:#f1f5f9; color:#94a3b8; cursor:not-allowed; }
+
+/* SIDEBAR PROGRESS (reuse styles similar to materi) */
+.sidebar-progress-box {
+  width: 92%;
+  margin-top: 18px;
+  padding: 12px;
+  background: #e8fff1;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px #d1f7e1, 0 6px 12px rgba(0,0,0,0.04);
+}
+.progress-label { font-weight:800; font-size:0.9rem; color:#065f46; margin-bottom:6px; }
+.sidebar-progress-track { width:100%; height:10px; background:#d7f5e4; border-radius:10px; overflow:hidden; }
+.sidebar-progress-fill { height:100%; width:0%; border-radius:10px; background: linear-gradient(90deg,#10b981,#06b6d4); transition: width .45s ease; }
+.sidebar-progress-percent { margin-top:6px; font-weight:700; font-size:0.85rem; color:#047857; text-align:right; }
+
+/* ===== KONTEN & HEADER ===== */
+.content {
+  margin-left: 250px;
+  padding: 30px;
+  padding-top: 0;
+  min-height: 100vh;
+}
+
+.page-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: linear-gradient(90deg, #16a34a, #0ea5e9);
+  color: #fff;
+  border-radius: 0 0 16px 16px;
+  padding: 20px 24px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.page-title {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+
+.page-title .emoji {
+  margin-right: 10px;
+}
+
+/* ===== KARTU DASAR ===== */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  border: 2px solid #e9f9f1;
+}
+
+.hint-card {
+  font-weight: 600;
+  color: #0c7756;
+}
+
+/* ===== SOAL PILIHAN GANDA ===== */
+.question-card h3 {
+  margin: 0 0 14px 0;
+}
+
+.option {
+  display: block;
+  padding: 10px 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 2px solid #e8faf2;
+  background: #f6fffb;
+  transition: 0.2s;
+}
+
+.option:hover {
+  background: #eafff5;
+}
+
+.option input {
+  margin-right: 8px;
+}
+
+/* ===== ESAI ===== */
+.essay-card h3 {
+  margin-top: 0;
+}
+
+.essay-item {
+  margin: 16px 0;
+}
+
+.essay-item label {
+  display: block;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.essay-input {
+  width: 100%;
+  min-height: 110px;
+  border: 2px solid #c9f1e1;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 15px;
+  background: #fbfffd;
+  box-shadow: inset 0 0 0 1px #e9f9f1, 0 6px 16px rgba(0, 0, 0, 0.04);
+  outline: none;
+  transition: 0.25s;
+}
+
+.essay-input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+  background-color: #f8fffa;
+}
+
+/* ===== INFOGRAFIS ===== */
+.info-card p {
+  margin: 0.35rem 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 14px 0;
+}
+
+.btn {
+  background: #10b981;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(16, 185, 129, 0.18);
+  transition: 0.2s;
+}
+
+.btn.primary {
+  background: #0284c7;
+}
+
+.btn.success {
+  background: #059669;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.icons-palette h4 {
+  margin: 12px 0 6px 0;
+}
+
+.small {
+  margin: 0.2rem 0 0.8rem 0;
+  color: #0a6a50;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #f6fffb;
+  border: 2px dashed #cdeee0;
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.icon-src {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  cursor: grab;
+  border-radius: 10px;
+  background: #fff;
+  padding: 6px;
+  border: 1px solid #e8faf2;
+  transition: 0.2s;
+}
+
+.icon-src:hover {
+  transform: scale(1.1);
+}
+
+.icon-src:active {
+  cursor: grabbing;
+}
+
+/* ===== KANVAS ===== */
+#canvasWrapper {
+  border: 2px dashed #cdeee0;
+  border-radius: 14px;
+  padding: 10px;
+  background: #f4fffb;
+}
+
+#infographicCanvas {
+  height: 420px;
+  background: #fff;
+  border: 2px solid #e8faf2;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+}
+
+.canvas-item {
+  position: absolute;
+  user-select: none;
+  cursor: move;
+  transform-origin: center center;
+}
+
+.canvas-text {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid #10b981;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-weight: 800;
+  color: #0c3b2e;
+}
+
+/* ===== BUTTON ACTIONS ===== */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    border-right: none;
+    border-bottom: 4px solid #baf0d5;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+}
+
+/* ===== FIX HEADER STICKY ===== */
+.content {
+  position: relative;
+  margin-left: 250px;
+  padding: 100px 30px 30px; /* ruang untuk header */
+  min-height: 100vh;
+}
+
+.page-header {
+  position: fixed; /* ubah dari sticky jadi fixed agar menempel ke viewport */
+  top: 0;
+  left: 250px; /* agar tidak menimpa sidebar */
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #16a34a, #0ea5e9);
+  color: #fff;
+  border-radius: 0 0 16px 16px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== POPUP STYLING ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.popup-overlay.hidden {
+  display: none;
+}
+
+.popup-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-card h2 {
+  color: #0ea5e9;
+  margin-bottom: 16px;
+}
+
+.popup-card p {
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.popup-buttons .btn {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.popup-buttons .btn:hover {
+  background: #0d8a3c;
+}
+
+.popup-buttons .btn.primary {
+  background: linear-gradient(90deg, #16a34a, #0ea5e9);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* ===== FIX TOMBOL KEMBALI TIDAK BISA DIKLIK ===== */
+
+/* pastikan sidebar selalu berada di atas header & konten */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  z-index: 3000 !important; /* lebih tinggi dari header */
+}
+
+/* batasi header agar tidak menutupi area sidebar */
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 250px; /* mulai setelah sidebar */
+  right: 0;
+  z-index: 2000; /* lebih rendah dari sidebar */
+  background: linear-gradient(90deg, #16a34a, #0ea5e9);
+  color: #fff;
+  border-radius: 0 0 16px 16px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== FIX FINAL: TOMBOL KEMBALI SIDEBAR BISA DIKLIK ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  z-index: 99999 !important; /* pastikan di atas semua elemen lain */
+  pointer-events: auto !important;
+}
+
+/* pastikan header tidak menimpa sidebar */
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 250px;
+  right: 0;
+  z-index: 5000;
+}
+
+/* pastikan overlay popup tidak blokir sidebar */
+.popup-overlay {
+  z-index: 3000;
+  pointer-events: none; /* biar sidebar tetap bisa diklik */
+}
+
+/* aktifkan interaksi popup hanya di area card */
+.popup-overlay .popup-card {
+  pointer-events: auto;
+}
+
+/* ===== PATCH: Sinkronisasi ukuran & spacing seperti Kuis 2 ===== */
+
+/* Sidebar: pastikan lebar 270px dan z-index lebih tinggi */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;            /* SAMAKAN DENGAN KUIS 2 */
+  height: 100vh;
+  max-height: 100vh;
+  background: linear-gradient(180deg,#bbf7d0,#dcfce7);
+  box-shadow: 3px 0 10px rgba(0,0,0,0.08);
+  padding: 20px 16px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  z-index: 9999;           /* pastikan di atas header */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.sidebar::-webkit-scrollbar{ width:0; height:0; display:none; }
+
+/* Content area: geser sesuai lebar sidebar (270px) dan padding sama dengan Kuis2 */
+.content, main, .main-content {
+  margin-left: 270px !important;  /* penting: pastikan meng-overwrite rule lain */
+  padding: 24px;                  /* padding sama seperti style_kuis2.css */
+  min-height: 100vh;
+  overflow: visible;
+}
+
+/* Header: gunakan sticky (sama seperti Kuis 2) bukan fixed with left offsets */
+.page-header {
+  position: sticky;
+  top: 16px;                   /* sedikit jarak atas */
+  z-index: 5000;
+  background: linear-gradient(90deg,#16a34a,#0ea5e9);
+  color: #fff;
+  border-radius: 12px;
+  padding: 14px 18px;          /* lebih compact seperti Kuis2 header */
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+}
+
+/* Page title font sizing align with Kuis2 */
+.page-title { font-size: 28px; font-weight:900; }
+
+/* Countdown badge (right corner inside header) */
+.countdown-wrapper { position: absolute; right: 18px; top: 14px; }
+#countdown-timer {
+  background: linear-gradient(90deg,#fb923c,#f97316);
+  color: #fff;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(249,115,22,0.12);
+  font-size: 0.95rem;
+  display:inline-block;
+}
+
+/* kalau ada rule lama .page-header yang menggunakan left:250px / position:fixed,
+   pastikan override dengan rule di atas; gunakan !important bila perlu (hindari kecuali perlu) */
+
+/* Responsive adjustments (samakan dengan Kuis2) */
+@media (max-width: 900px) {
+  .sidebar { width: 220px; }
+  .content { margin-left: 220px !important; padding: 16px; }
+  .page-header { top: 10px; padding: 12px; }
+}
+@media (max-width: 640px) {
+  .sidebar { position: relative; width: 100%; height: auto; padding-bottom: 12px; display:flex; flex-direction:row; gap:12px; }
+  .content { margin-left: 0 !important; padding: 12px; }
+  .page-header { position: static; border-radius: 12px; }
+  .sidebar-progress-box { display:none; } /* optional on mobile */
+}
+
+/* ===== Badge modal & sidebar badge ===== */
+.badge-overlay { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background: rgba(2,6,23,0.45); z-index:6000; padding:20px;}
+.badge-overlay.hidden { display:none; }
+.badge-card { width:520px; max-width:calc(100% - 40px); background:#fff; border-radius:12px; padding:22px; text-align:center; box-shadow:0 18px 50px rgba(6,95,70,0.12); color:#064e3b; }
+.badge-emoji { font-size:34px; margin-bottom:4px; }
+.badge-box { display:flex; gap:12px; align-items:center; justify-content:center; margin:12px auto; background: linear-gradient(90deg,#f0fdf4,#ecfeff); padding:12px 14px; border-radius:10px; width:80%; max-width:360px; }
+.badge-icon { font-size:28px; }
+.badge-info strong { display:block; font-weight:800; color:#065f46; }
+.badge-note { font-size:12px; color:#14532d; opacity:0.9; margin-top:4px;}
+.badge-actions { display:flex; gap:12px; justify-content:center; margin-top:14px; }
+.badge-actions .btn.primary { background: linear-gradient(90deg,#16a34a,#06b6d4); color:#fff; border:none; }
+.sidebar-badge {
+  display:flex; gap:10px; align-items:center; padding:10px; border-radius:10px;
+  background: linear-gradient(90deg,#ecfeff,#f0fff4); color:#064e3b; margin:12px 12px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.sidebar-badge .ico { font-size:20px; }
+.sidebar-badge .txt { font-weight:700; font-size:14px; }
+@media (max-width:520px) { .badge-card { padding:16px; } .badge-box { width:90%; } }
+
+.badge-icon img,
+.badge-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}

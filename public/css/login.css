@@ -1,0 +1,121 @@
+/* ===================================================
+   login.css - Halaman Login Estetik (Glassmorphism)
+=================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* 1. Background Video Styling */
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5; /* Opacity video */
+}
+
+/* Overlay untuk memastikan teks terbaca jelas */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.7), rgba(16, 185, 129, 0.4));
+    z-index: -1;
+}
+
+/* 2. Login Card (Glassmorphism Effect) */
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 50px 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.login-card h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.login-card p {
+    font-size: 14px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* 3. Tombol Role Selector */
+.role-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-role {
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-role.siswa {
+    background: #ffffff;
+    color: #064e3b;
+}
+
+.btn-role.guru {
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-role:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-role.siswa:hover {
+    background: #f0fdf4;
+}
+
+.btn-role.guru:hover {
+    background: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,797 @@
+/* ===================================================
+   dashboard_guru.css - Desain Panel Kendali Guru
+=================================================== */
+
+/* Variabel Warna Tema Biar Selaras & Mudah Di-tweak */
+:root {
+    --bg-admin: #f4f6f9;
+    --white: #ffffff;
+    --primary-green: #19a463;
+    --dark-green: #0f6b40;
+    --light-green: #e6f7ef;
+    --text-dark: #2d3748;
+    --text-muted: #718096;
+    --border-color: #e2e8f0;
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 80px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-admin);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* ================= DASHBOARD LAYOUT ================= */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* ================= 1. SIDEBAR STYLE ================= */
+.sidebar {
+    width: var(--sidebar-width);
+    background: linear-gradient(180deg, #13854f, #09522f);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    transition: width var(--transition-speed) ease;
+    flex-shrink: 0;
+    z-index: 100;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-brand {
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sidebar-brand i {
+    color: #4ade80;
+    font-size: 24px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 15px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.menu-item i {
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+}
+
+.menu-item:hover, .menu-item.active {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.menu-item.logout {
+    margin-top: 40px;
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.menu-item.logout:hover {
+    background-color: rgba(239, 68, 68, 0.4);
+    color: var(--white);
+}
+
+/* KONDISI SIDEBAR KETIKA DITUTUP (COLLAPSED) VIA JS */
+.sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+}
+
+.sidebar.collapsed .sidebar-brand span,
+.sidebar.collapsed .menu-item span {
+    display: none; /* Sembunyikan teks menu */
+}
+
+.sidebar.collapsed .sidebar-brand {
+    justify-content: center;
+    padding: 25px 0;
+}
+
+/* ================= 2. MAIN CONTENT AREA ================= */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Mencegah elemen flexbox jebol ukuran */
+    transition: all var(--transition-speed) ease;
+}
+
+/* TOP NAVBAR / HEADER */
+.main-header {
+    height: 75px;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.btn-toggle:hover {
+    background-color: var(--bg-admin);
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.teacher-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.teacher-profile i {
+    font-size: 24px;
+    color: var(--primary-green);
+}
+
+/* CONTAINER KONTEN BODY */
+.content-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow-y: auto;
+    height: calc(100vh - 75px);
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-top: 10px;
+}
+
+/* ROW LAYOUT CARDS */
+.dashboard-row {
+    display: grid;
+    gap: 24px;
+    width: 100%;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .grid-2, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* KARTU STATISTIK & GRAFIK BASE */
+.stat-card-summary, .chart-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--border-color);
+}
+
+.stat-card-summary h3, .chart-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Kotak Kecil di Ringkasan */
+.summary-box-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    height: calc(100% - 40px);
+}
+
+.box-stat {
+    background-color: var(--light-green);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box-stat h4 {
+    font-size: 13px;
+    color: var(--dark-green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.box-stat p {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-top: 5px;
+}
+
+/* WADAH CHART UTAMA (PENTING: Harus dikunci ukurannya biar Chart.js nggak loncat ukurannya) */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 180px; /* Batas tinggi bar chart */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ukuran khusus wadah Chart Bunder/Pie */
+.chart-container.pie-size {
+    height: 220px; 
+}
+
+/* KARTU SUBMATERI KECIL */
+.submateri-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 35px;
+}
+
+.submateri-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+/* Label Kecil Penunjuk Submateri */
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.sm-1 { background-color: #dbeafe; color: #1e40af; }
+.sm-2 { background-color: #fef3c7; color: #92400e; }
+.sm-3 { background-color: #fee2e2; color: #991b1b; }
+.sm-4 { background-color: #dcfce7; color: #166534; }
+
+/* ===================================================
+   TAMBAHAN UNTUK TABEL DATA SISWA & HASIL BELAJAR
+=================================================== */
+
+.data-card {
+    padding: 30px;
+}
+
+.table-header-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.action-tools {
+    display: flex;
+    gap: 15px;
+}
+
+.filter-kelas {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-dark);
+    font-size: 14px;
+    outline: none;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0 15px;
+}
+
+.search-box i {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    width: 220px;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #f8fafc;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.data-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+    color: var(--text-dark);
+    vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.badge-kelas {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.active {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-badge.inactive {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.btn-action {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+    margin-right: 5px;
+}
+
+.btn-action.view {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.btn-action.view:hover { background-color: #bfdbfe; }
+
+.btn-action.edit {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.btn-action.edit:hover { background-color: #fde68a; }
+
+/* ===================================================
+   PAGED-SPECIFIC STYLE: HASIL SUBMATERI (LATIHAN & KUIS)
+=================================================== */
+.grid-submateri-select {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-sub-tab {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    background: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.btn-sub-tab.active {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border-color: var(--primary-green);
+}
+
+/* ===================================================
+   MODAL DETAIL SISWA (POP-UP TENGAH LAYAR)
+=================================================== */
+.modal-overlay-guru {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.6); /* Warna gelap transparan */
+    backdrop-filter: blur(5px); /* Efek blur estetik */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay-guru.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content-guru {
+    background: var(--white);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh; /* Biar nggak bablas kalau layarnya kecil */
+    border-radius: 16px;
+    padding: 30px;
+    overflow-y: auto; /* Scroll di dalam modal saja */
+    position: relative;
+    transform: translateY(-30px);
+    transition: all 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal-overlay-guru.show .modal-content-guru {
+    transform: translateY(0);
+}
+
+.btn-close-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-close-modal:hover {
+    color: #ef4444; /* Merah pas di-hover */
+    transform: scale(1.1);
+}
+
+/* ===================================================
+   PERBAIKAN KOTAK NOMOR ANALISIS (BIAR HORIZONTAL)
+=================================================== */
+.question-analysis-grid {
+    display: flex;
+    flex-direction: row; /* Paksa berjajar ke samping */
+    flex-wrap: wrap; /* Boleh turun baris JIKA layar mentok banget */
+    gap: 8px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.q-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    cursor: help;
+    flex-shrink: 0; /* Biar kotaknya nggak gepeng/mengecil */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.q-box:hover {
+    transform: translateY(-3px);
+}
+
+.q-box.correct { background: linear-gradient(135deg, #10b981, #059669); }
+.q-box.wrong { background: linear-gradient(135deg, #ef4444, #dc2626); }
+
+/* ===================================================
+   PERBAIKAN UI KOLOM KOMENTAR / FEEDBACK GURU
+=================================================== */
+.feedback-section {
+    margin-top: 25px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.feedback-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--light-green);
+    color: var(--primary-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.feedback-header h4 {
+    font-size: 15px;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+.feedback-header p {
+    font-size: 12.5px;
+    color: var(--text-muted);
+}
+
+.feedback-input-wrapper {
+    position: relative;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.feedback-input-wrapper:focus-within {
+    border-color: var(--primary-green);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(25, 164, 99, 0.1);
+}
+
+.feedback-textarea {
+    width: 100%;
+    height: 90px;
+    padding: 16px;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 13.5px;
+    resize: none;
+    outline: none;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.feedback-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.feedback-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-save-comment {
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-save-comment:hover {
+    background: var(--dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(15, 107, 64, 0.3);
+}
+
+/* ===================================================
+   PAGE-SPECIFIC STYLE: REKAP EVALUASI AKHIR (ESAI)
+=================================================== */
+.evaluation-modal-size {
+    max-width: 850px; /* Diperlebar dikit biar esainya nyaman dibaca */
+}
+
+.score-badge-inline {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.evaluation-section-block {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.eval-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.eval-block-header h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.eval-score-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-green);
+    background: #ffffff;
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* Item List Review Esai */
+.essay-review-item {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+}
+
+.essay-q-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.essay-student-ans {
+    background: #f1f5f9;
+    border-left: 4px solid #f59e0b; /* Aksen warna emas penanda esai */
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.essay-grading-zone {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 10px;
+}
+
+.essay-grading-zone label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.input-skor-esai {
+    width: 70px;
+    padding: 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    outline: none;
+}
+
+.input-skor-esai:focus {
+    border-color: var(--primary-green);
+    background-color: var(--light-green);
+}

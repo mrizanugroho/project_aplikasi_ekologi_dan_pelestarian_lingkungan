@@ -1,0 +1,193 @@
+/* =================================================
+   1. STYLING BODY (LATAR BELAKANG GRADASI HIJAU)
+================================================= */
+body {
+    /* Gradasi Hijau Tua ke Hijau Muda */
+    background: linear-gradient(135deg, #064e3b 0%, #047857 45%, #10b981 100%);
+    background-attachment: fixed; /* Biar pas di-scroll, background-nya tetep diam */
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+}
+
+/* =================================================
+   2. STYLING UTAMA HALAMAN PROFIL
+================================================= */
+.profil-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Header Profil - Efek Glassmorphism */
+.profil-header {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 12px 30px rgba(4, 47, 34, 0.2);
+    text-align: center;
+}
+
+.profil-header h2 {
+    margin: 0;
+    color: #064e3b; /* Hijau tua pekat */
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.profil-header p {
+    color: #047857;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.profil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* =================================================
+   3. STYLING CARD (KOTAK KONTEN)
+================================================= */
+/* Card Styling dengan efek Putih Fade / Glassmorphism */
+.profil-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(4, 47, 34, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profil-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(4, 47, 34, 0.25); /* Bayangan hijau gelap pas di-hover */
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #047857;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+    padding-bottom: 10px;
+}
+
+/* =================================================
+   4. STYLING ELEMEN DI DALAM CARD
+================================================= */
+.list-item {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #cbd5e1;
+}
+
+.list-item li:last-child {
+    border-bottom: none;
+}
+
+.modul-badge {
+    background: #d1fae5;
+    color: #047857;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.refleksi-text {
+    font-style: italic;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* Highlight Card untuk Evaluasi */
+.highlight-card {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(236, 253, 245, 0.9));
+    border-left: 6px solid #10b981;
+}
+
+.evaluasi-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    flex: 1;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.stat-box span {
+    display: block;
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.stat-box strong {
+    display: block;
+    font-size: 24px;
+    color: #047857;
+    margin-top: 5px;
+}
+
+.komentar-guru blockquote {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    padding: 15px;
+    margin: 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #166534;
+}
+
+.empty-state {
+    color: #94a3b8;
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* =================================================
+   5. ANIMASI & RESPONSIVE
+================================================= */
+/* Animasi Muncul */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive untuk HP */
+@media (max-width: 768px) {
+    .profil-grid {
+        grid-template-columns: 1fr;
+    }
+}

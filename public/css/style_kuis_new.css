@@ -1,0 +1,196 @@
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
+
+body{
+  background:#e9efec;
+  height:100vh;
+  overflow:hidden; /* ❗ penting: tidak boleh scroll */
+}
+
+/* ===== HEADER ===== */
+.quiz-header{
+  height:90px;
+  background:#17a864;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.quiz-header h1{
+  font-size:28px;
+  font-weight:700;
+}
+
+.timer{
+  position:absolute;
+  right:40px;
+  background:#ff9f2f;
+  color:white;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:700;
+}
+
+/* ===== LAYOUT ===== */
+.quiz-container{
+  height:calc(100vh - 90px);
+  display:flex;
+  gap:30px;
+  padding:30px 40px;
+}
+
+/* ================= LEFT PANEL ================= */
+.quiz-left{
+  flex:1.4;
+  background:#19ad72;
+  border-radius:18px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+/* Soal x dari 10 */
+.question-number{
+  color:black;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+/* Card putih */
+.question-card{
+  background:#f4f4f4;
+  border-radius:20px;
+  padding:30px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+/* teks soal */
+#questionText{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:20px;
+  color:#1a1a1a;
+}
+
+/* pilihan jawaban */
+.answers{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.answer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between; /* penting */
+  background:white;
+  border:2px solid #7ed5a5;
+  padding:18px 22px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+/* wrapper kiri (huruf + teks) */
+.answer-left{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+
+.answer:hover{
+  background:#ecfff5;
+}
+
+.answer input{
+  margin-left:auto;
+}
+
+.choice{
+  background:#21b36b;
+  color:white;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:8px;
+}
+
+/* ================= RIGHT PANEL ================= */
+.quiz-right{
+  width:300px;
+  background:#19ad72;
+  border-radius:18px;
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+}
+
+
+/* judul */
+.quiz-right h3{
+  color:white;
+  margin-bottom:15px;
+}
+
+/* grid nomor soal */
+.question-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.q-number{
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  background:#e5e5e5;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.q-number.active{
+  background:#3dd47e;
+  color:white;
+}
+
+/* tombol ragu */
+.btn-flag{
+  background:#cfcfcf;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:20px;
+  font-weight:600;
+}
+
+/* tombol navigasi */
+.nav-buttons{
+  display:flex;
+  gap:10px;
+}
+
+.nav-buttons button{
+  flex:1;
+  border:none;
+  padding:14px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.btn-prev{ background:#c7efd7; }
+.btn-finish{ background:#9da3af; color:white; }
+.btn-next{ background:#1e9e4d; color:white; }
+

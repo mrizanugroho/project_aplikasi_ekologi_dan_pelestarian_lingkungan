@@ -1,0 +1,216 @@
+/* ===============================
+   RESET & GLOBAL
+=================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   BACKGROUND (FIXED)
+=================================*/
+.background-layer {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #6fd39f, #3d9e67);
+    z-index: -1;
+}
+
+/* Decorative soft circles */
+.background-layer::before,
+.background-layer::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+.background-layer::before {
+    top: -100px;
+    left: -100px;
+}
+
+.background-layer::after {
+    bottom: -120px;
+    right: -120px;
+}
+
+/* ===============================
+   CONTAINER
+=================================*/
+.container {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ===============================
+   CARD
+=================================*/
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    padding: 50px 45px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.705);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* subtle hover effect */
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* ===============================
+   HEADER
+=================================*/
+.card-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.icon-box {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.card-header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1f4f36;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #5f7c6f;
+}
+
+/* ===============================
+   SECTION
+=================================*/
+.info-section {
+    margin-bottom: 45px;
+}
+
+.info-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2e6d4f;
+}
+
+/* ===============================
+   GRID INFO
+=================================*/
+.info-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 12px 20px;
+    background: #f4fbf7;
+    padding: 25px;
+    border-radius: 14px;
+}
+
+.label {
+    font-weight: 500;
+    color: #2e6d4f;
+}
+
+.value {
+    color: #333;
+}
+
+/* ===============================
+   DESCRIPTION
+=================================*/
+.description {
+    line-height: 1.7;
+    color: #444;
+    background: #f4fbf7;
+    padding: 25px;
+    border-radius: 14px;
+}
+
+/* ===============================
+   LINK GROUP
+=================================*/
+.link-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.external-link {
+    text-decoration: none;
+    background: #2e6d4f;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.external-link:hover {
+    background: #1f4f36;
+    transform: translateY(-2px);
+}
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+@media (max-width: 768px) {
+
+    .card {
+        padding: 35px 25px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .label {
+        font-weight: 600;
+    }
+}
+
+.back-button {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+
+    padding: 8px 14px;
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+
+    color: #1f4f36;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #1f4f36;
+    color: white;
+    transform: translateX(-3px);
+}
