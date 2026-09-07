@@ -314,3 +314,13 @@ Route::get('/materi4/tujuan', function () { // 👈 INI YANG DIGANTI
 
     return view('materi_4.tujuan');
 });
+
+// Halaman Utama (Landing Page)
+Route::get('/', function () {
+    // Kalau udah login, arahin langsung ke dashboard
+    if (session()->has('user_id')) {
+        if (session('role') === 'siswa') return redirect('/dashboard-siswa');
+        if (session('role') === 'guru') return redirect('/dashboard-guru');
+    }
+    return view('landing');
+});
