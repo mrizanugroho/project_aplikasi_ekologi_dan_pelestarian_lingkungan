@@ -513,3 +513,32 @@ window.tutupDetailInfoSiswa = function() {
         document.body.style.overflow = ""; // Buka lagi scroll-nya
     }
 };
+
+/* =================================================
+   9. FITUR FILTER KELAS DI HALAMAN DATA SISWA
+================================================= */
+document.addEventListener('DOMContentLoaded', function() {
+    // Ambil elemen dropdown filter kelas dan semua baris tabel
+    const filterDropdown = document.querySelector('.filter-kelas');
+    const tableRows = document.querySelectorAll('.data-table tbody tr');
+
+    if (filterDropdown) {
+        filterDropdown.addEventListener('change', function() {
+            // Ambil nilai yang dipilih (misal: '7a', '7b', atau 'all')
+            const selectedKelas = this.value.toLowerCase();
+
+            // Cek setiap baris siswa di tabel
+            tableRows.forEach(row => {
+                // Ambil teks dari kolom ke-4 (indeks 3) yaitu kolom Kelas
+                const kelasSiswa = row.cells[3].textContent.trim().toLowerCase();
+
+                // Logika tampilkan/sembunyikan
+                if (selectedKelas === 'all' || kelasSiswa === selectedKelas) {
+                    row.style.display = ''; // Munculkan baris
+                } else {
+                    row.style.display = 'none'; // Sembunyikan baris
+                }
+            });
+        });
+    }
+});

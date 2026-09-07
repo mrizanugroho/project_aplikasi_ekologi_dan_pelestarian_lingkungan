@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* ===============================
+/* ===============================
        5. BUKA BLUR GEMBOK (TOMBOL LANJUT)
     =============================== */
     if (nextPage) {
@@ -182,6 +182,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const lockOverlay = document.getElementById("chatLockOverlay");
             if(lockOverlay) {
                 lockOverlay.classList.add("unlocked");
+            }
+
+            if (inputField && sendBtn) {
+                inputField.disabled = false;
+                sendBtn.disabled = false;
+                inputField.placeholder = "Ketik pesan diskusi di sini...";
+                inputField.focus(); // Biar kursor langsung kedap-kedip siap ngetik
             }
             
             // Scroll mulus ke area chat
