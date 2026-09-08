@@ -269,9 +269,6 @@ document.querySelector(".btn-finish").onclick = showResult;
 // ===============================
 // MAIN RESULT & AJAX SUBMIT
 // ===============================
-// ===============================
-// MAIN RESULT & AJAX SUBMIT
-// ===============================
 function showResult(){
   clearInterval(timerInterval);
 
@@ -293,31 +290,36 @@ function showResult(){
 
   const score = Math.round((correct / questions.length) * 100);
 
+// Munculkan popup nilai
   finalScoreElement.textContent = score;
   scoreDetail.textContent = `Benar: ${correct} | Salah: ${wrong} | Kosong: ${unanswered}`;
   resultModal.classList.add("show");
 
-  const baseUrl = document.querySelector('meta[name="base-url"]').getAttribute('content');
+  // 🔥 KODE FETCH SUPER AMAN (Tanpa BaseURL) 🔥
+  let csrfToken = '';
+  const metaCsrf = document.querySelector('meta[name="csrf-token"]');
+  if (metaCsrf) {
+      csrfToken = metaCsrf.getAttribute('content');
+  }
 
-  // 🔥 KIRIM NILAI KUIS 3 KE DATABASE LARAVEL
-  fetch(baseUrl + '/simpan-nilai', {
+  fetch('/simpan-nilai', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+          'X-CSRF-TOKEN': csrfToken
       },
       body: JSON.stringify({
-          materi_id: 'materi_3',               // 👈 Sudah aman untuk Kuis 3
+          materi_id: 'materi_3',  // Pakai format asli biar seragam
           jenis_tugas: 'kuis', 
           skor: score,
-          jumlah_benar: correct,                   // 👈 Komponen wajib untuk panel guru
-          jumlah_salah: (wrong + unanswered),      // 👈 Komponen wajib untuk panel guru
-          pola_jawaban: JSON.stringify(answersUser) // 👈 Komponen wajib untuk panel guru
+          jumlah_benar: correct,                   
+          jumlah_salah: (wrong + unanswered),      
+          pola_jawaban: JSON.stringify(answersUser)
       })
   })
   .then(response => response.json())
   .then(data => console.log("Nilai kuis 3 berhasil disimpan:", data))
-  .catch(error => console.error("Gagal menyimpan nilai kuis 3:", error));
+  .catch(error => console.error("Gagal menyimpan:", error));
 }
 
 function autoSubmit(){

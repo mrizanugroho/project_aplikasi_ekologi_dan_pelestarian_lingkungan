@@ -302,22 +302,31 @@ function showResult(){
 
   const baseUrl = document.querySelector('meta[name="base-url"]').getAttribute('content');
 
-  // 🔥 PERHATIKAN BAGIAN INI: materi_id diubah jadi 'materi_2'
-  fetch(baseUrl + '/simpan-nilai', {
+// 🔥 KODE FETCH SUPER AMAN KUIS 4 🔥
+  let csrfToken = '';
+  const metaCsrf = document.querySelector('meta[name="csrf-token"]');
+  if (metaCsrf) {
+      csrfToken = metaCsrf.getAttribute('content');
+  }
+
+  fetch('/simpan-nilai', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+          'X-CSRF-TOKEN': csrfToken
       },
       body: JSON.stringify({
-          materi_id: 'materi_2',  
+          materi_id: 'materi_4',  // 👈 UDAH DIGANTI JADI MATERI 4!
           jenis_tugas: 'kuis', 
-          skor: score
+          skor: score,
+          jumlah_benar: correct,                   
+          jumlah_salah: (wrong + unanswered),      
+          pola_jawaban: JSON.stringify(answersUser) 
       })
   })
   .then(response => response.json())
-  .then(data => console.log("Nilai kuis 2 berhasil disimpan:", data))
-  .catch(error => console.error("Gagal menyimpan nilai kuis 2:", error));
+  .then(data => console.log("Nilai Kuis 4 berhasil disimpan:", data))
+  .catch(error => console.error("Gagal menyimpan nilai Kuis 4:", error));
 }
 
 function autoSubmit(){

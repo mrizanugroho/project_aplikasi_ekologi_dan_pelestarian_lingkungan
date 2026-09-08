@@ -256,12 +256,16 @@
       <p style="font-size: 14px; color: #155e4b;">Silakan tonton video rangkuman ceria ini sampai selesai tanpa dicepatkan untuk mempersiapkan latihan!</p>
     </div>
     
-    <div class="video-container" style="width: 100%; max-width: 600px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(6,78,59,0.15);">
-      <!-- Pastikan path src mengarah ke folder video kamu, berasumsi nama filenya "Skrip 1.mp4" -->
-      <video id="materiVideo" controls style="width:100%; max-width:700px; border-radius:8px;">
-        <source src="{{ asset('video/Skrip 1.mp4') }}" type="video/mp4">
-      </video>
-    </div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <iframe 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+        src="https://www.youtube.com/embed/CL7dl0Si0ZY?rel=0" 
+        title="Video Pembelajaran Ekosistem" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+</div>
   </article>
 
 </div> <!-- 👈 Ini penutup dari .materi-stack bawaan kodemu -->

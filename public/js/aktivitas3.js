@@ -126,11 +126,16 @@ document.addEventListener("DOMContentLoaded", () => {
             popup.classList.add("show");
 
 // --- Simpan Nilai ke Database ---
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            // 1. Ambil CSRF Token dengan aman (Anti-Crash)
+            let csrfToken = '';
+            const metaCsrf = document.querySelector('meta[name="csrf-token"]');
+            if (metaCsrf) {
+                csrfToken = metaCsrf.getAttribute('content');
+            }
             
             let savedJawaban = localStorage.getItem(progressKey) || "{}";
 
-            // Hapus /ekosistem-laravel/public
+            // 2. 🔥 KODE FETCH SUPER AMAN 🔥
             fetch('/simpan-nilai', { 
                 method: 'POST',
                 headers: {
@@ -139,16 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    materi_id: 'materi_3',
+                    materi_id: 'materi_3',    // 👈 Pakai format asli biar disukai server
                     jenis_tugas: 'latihan', 
                     skor: finalScore,
                     jawaban_detail: savedJawaban
                 })
             })
-            // ... (lanjutan kodingan then catch di bawahnya) ...
             .then(response => response.json())
-            .then(data => console.log("Status Simpan Nilai:", data))
-            .catch(error => console.error("Gagal simpan nilai:", error));
+            .then(data => console.log("Status Simpan Nilai Latihan 3:", data))
+            .catch(error => console.error("Gagal simpan nilai latihan 3:", error));
 
             // --- Logika Lolos / Tidak ---
             if (finalScore >= 70) {

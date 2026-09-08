@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="submateri-id" content="3"> 
+    <meta name="submateri-id" content="4"> 
     
     <meta name="base-url" content="{{ url('/') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -43,7 +43,7 @@
 
       <section class="card">
         <h2>😊 Penilaian Pemahaman</h2>
-        <p>Seberapa paham kamu tentang materi <strong>Ekosistem dan Pengaruh Lingkungan terhadap Organisme?</strong></p>
+        <p>Seberapa paham kamu tentang materi <strong>Mengapa Harus Dilakukan Konservasi Keanekaragaman Hayati</strong></p>
 <div class="rating-box">
   <p><strong>Pilih tingkat pemahaman kamu (1–10):</strong></p>
 

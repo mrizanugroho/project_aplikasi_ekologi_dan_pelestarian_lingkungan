@@ -116,11 +116,16 @@ document.addEventListener("DOMContentLoaded", () => {
             popup.classList.add("show");
 
 // --- Simpan Nilai ke Database ---
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            // 1. Ambil CSRF Token dengan aman (Anti-Crash)
+            let csrfToken = '';
+            const metaCsrf = document.querySelector('meta[name="csrf-token"]');
+            if (metaCsrf) {
+                csrfToken = metaCsrf.getAttribute('content');
+            }
             
             let savedJawaban = localStorage.getItem(progressKey) || "{}";
 
-            // Hapus /ekosistem-laravel/public
+            // 2. 🔥 KODE FETCH SUPER AMAN LATIHAN 4 🔥
             fetch('/simpan-nilai', { 
                 method: 'POST',
                 headers: {
@@ -135,10 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     jawaban_detail: savedJawaban
                 })
             })
-            // ... (lanjutan kodingan then catch di bawahnya) ...
             .then(response => response.json())
-            .then(data => console.log("Status Simpan Nilai:", data))
-            .catch(error => console.error("Gagal simpan nilai:", error));
+            .then(data => console.log("Status Simpan Nilai Latihan 4:", data))
+            .catch(error => console.error("Gagal simpan nilai Latihan 4:", error));
 
             // --- Logika Lolos / Tidak ---
             if (finalScore >= 70) {

@@ -229,11 +229,15 @@
           <p style="font-size: 14px; color: #155e4b;">Silakan tonton video penutup ini sampai selesai tanpa dicepatkan untuk mempersiapkan ke Evaluasi Akhir!</p>
         </div>
         
-        <div class="video-container" style="width: 100%; max-width: 600px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(6,78,59,0.15);">
-          <video id="materiVideo" width="100%" controls controlsList="nodownload">
-            <source src="../video/Skrip 4.mp4" type="video/mp4">
-            Browser kamu tidak mendukung pemutar video.
-          </video>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <iframe 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                src="https://www.youtube.com/embed/I41w1ntyt9E?rel=0" 
+                title="Video Pembelajaran Ekosistem" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
         </div>
       </article>
 

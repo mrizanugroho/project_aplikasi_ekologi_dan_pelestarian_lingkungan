@@ -9,7 +9,7 @@
     
     <title>Kuis Ekosistem Submateri 4</title>
     <link rel="stylesheet" href="{{ asset('css/quiz1.css') }}">
-    <script defer src="{{ asset('js/quiz2.js?v=' . time()) }}"></script>
+    <script defer src="{{ asset('js/quiz4.js?v=' . time()) }}"></script>
 </head>
 <!-- HEADER -->
 <header class="header">
