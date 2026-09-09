@@ -235,7 +235,7 @@ Route::get('/logout', function () {
 // CONTOH RUTE SETELAH DIPROTEKSI (UDAH BENER)
 
 Route::get('/dashboard-siswa', function () {
-    return view('dashboard-siswa'); 
+    return view('dashboard_siswa'); 
 })->middleware('anti-back'); // <--- Cukup tambahkan ini di ujung
 
 Route::get('/profil', [ProfilSiswaController::class, 'index'])->middleware('anti-back'); // <--- Tambahkan ini juga

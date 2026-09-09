@@ -35,7 +35,7 @@
     <button type="submit" class="btn-submit">Masuk</button>
 </form>
 
-            <a href="login.html" class="back-link">← Kembali ke pemilihan role</a>
+            <a href="login.blade.php" class="back-link">← Kembali ke pemilihan role</a>
         </div>
     </main>
 
